@@ -34,7 +34,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
         NSError *error;
         _payPalUAT = [[BTPayPalUAT alloc] initWithUATString:accessToken error:&error];
         if (error || !_payPalUAT) {
-            NSLog(@"[PayPalCommercePlatformSDK]: Error initializing PayPal UAT. BTPayPalUATError code: %i", error.code);
+            NSLog(@"[PayPalCommercePlatformSDK]: Error initializing PayPal UAT. Error code: %ld", (long) error.code);
             return nil;
         }
 
@@ -60,7 +60,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
     self.orderId = orderID;
     [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.card-checkout.started"];
 
-    [self.cardClient tokenizeCard:card completion:^(BTCardNonce * tokenizedCard, NSError *btError) {
+    [self.cardClient tokenizeCard:card completion:^(BTCardNonce * tokenizedCard, NSError __unused *btError) {
         if (tokenizedCard) {
             [self validateTokenizedCard:tokenizedCard completion:^(BOOL success, NSError *error) {
                 if (success) {
@@ -121,7 +121,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
     self.orderId = orderId;
     [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.paypal-checkout.started"];
 
-    NSString *payPalCheckoutURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/checkoutnow?token=%@", self.payPalUAT.basePayPalURL, self.orderId]];
+    NSURL *payPalCheckoutURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/checkoutnow?token=%@", self.payPalUAT.basePayPalURL, self.orderId]];
     PPCPayPalCheckoutRequest *request = [[PPCPayPalCheckoutRequest new] initWithCheckoutURL:payPalCheckoutURL];
 
     self.paymentFlowDriver.viewControllerPresentingDelegate = self.presentingDelegate;
