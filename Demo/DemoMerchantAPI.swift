@@ -104,7 +104,6 @@ class DemoMerchantAPI {
         var urlRequest = URLRequest(url: components.url!)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue(PPDataCollector.clientMetadataID(nil), forHTTPHeaderField: "PayPal-Client-Metadata-Id")
         urlRequest.httpBody = try! JSONEncoder().encode(processOrderParams)
 
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
