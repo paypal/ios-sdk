@@ -1,30 +1,30 @@
 PODS:
-  - Braintree (4.32.1):
-    - Braintree/Card (= 4.32.1)
-    - Braintree/Core (= 4.32.1)
-    - Braintree/PayPal (= 4.32.1)
-    - Braintree/UI (= 4.32.1)
-  - Braintree/Apple-Pay (4.32.1):
+  - Braintree (4.33.0):
+    - Braintree/Card (= 4.33.0)
+    - Braintree/Core (= 4.33.0)
+    - Braintree/PayPal (= 4.33.0)
+    - Braintree/UI (= 4.33.0)
+  - Braintree/Apple-Pay (4.33.0):
     - Braintree/Core
-  - Braintree/Card (4.32.1):
+  - Braintree/Card (4.33.0):
     - Braintree/Core
-  - Braintree/Core (4.32.1)
-  - Braintree/PaymentFlow (4.32.1):
+  - Braintree/Core (4.33.0)
+  - Braintree/PaymentFlow (4.33.0):
     - Braintree/Card
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPal (4.32.1):
+  - Braintree/PayPal (4.33.0):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.32.1):
+  - Braintree/PayPalDataCollector (4.33.0):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.32.1):
+  - Braintree/PayPalOneTouch (4.33.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.32.1)
-  - Braintree/UI (4.32.1):
+  - Braintree/PayPalUtils (4.33.0)
+  - Braintree/UI (4.33.0):
     - Braintree/Card
     - Braintree/Core
   - InAppSettingsKit (2.14)
@@ -34,31 +34,24 @@ PODS:
     - Braintree/PaymentFlow
 
 DEPENDENCIES:
-  - Braintree (from `https://github.com/braintree/braintree_ios.git`, branch `pp-uat-support`)
+  - Braintree (~> 4.33)
   - InAppSettingsKit
   - PayPalCommercePlatform (from `./`)
 
 SPEC REPOS:
   trunk:
+    - Braintree
     - InAppSettingsKit
 
 EXTERNAL SOURCES:
-  Braintree:
-    :branch: pp-uat-support
-    :git: https://github.com/braintree/braintree_ios.git
   PayPalCommercePlatform:
     :path: "./"
 
-CHECKOUT OPTIONS:
-  Braintree:
-    :commit: 9debce6e542d8da2e7bee4b9fbc260d75dce3239
-    :git: https://github.com/braintree/braintree_ios.git
-
 SPEC CHECKSUMS:
-  Braintree: d68228f72822bbe4115f356f32f8fb1a64aa2d42
+  Braintree: 586e4d274398fabe9d70ab790eefca41660b8a17
   InAppSettingsKit: 800853da39388780c15191846688c0974c5b13b5
   PayPalCommercePlatform: 1d562d68825c155e393f68412182163ace4a2388
 
-PODFILE CHECKSUM: d7b33847205000622ceffc811630542b57f4d3ac
+PODFILE CHECKSUM: 340717a79bd8145032f9be1fffa57f86335d51cc
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.9.1
