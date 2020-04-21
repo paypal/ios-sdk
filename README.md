@@ -10,8 +10,7 @@ This is a native SDK offering to current PayPal partners. It allows existing Pay
 
 - Inside of your cloned repo, run `pod install` to install project dependencies. Here are [instructions to install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) if you don't already have it.
 
-<!-- TODO: change project name and screenshot -->
-- Make sure to now open the **Xcode workspace** instead of the project file when going to build/run the project. This is called `PayPalCommercePlatform.xcworkspace`.
+- Make sure to now open the **Xcode workspace** instead of the project file when going to build/run the project. This is called `PayPal.xcworkspace`.
 
 - Choose the `Demo` app target from the drop-down menu before clicking the run/play button to run the app. Choose the simulator appropriate for your testing needs. See screenshot below.
   - ![Choose Demo target](documentation_image_assets/xcode_image.png)
