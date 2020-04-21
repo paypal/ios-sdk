@@ -1,0 +1,9 @@
+{
+    "payment_source": {
+        "contingencies": [],
+        "token": {
+            "id": "paypal-nonce",
+            "type": "NONCE"
+        }
+    }
+}

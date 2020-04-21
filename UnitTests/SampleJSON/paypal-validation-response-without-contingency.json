@@ -1,0 +1,20 @@
+{
+    "payment_source": {
+        "card": {
+            "last_digits": "1111",
+            "card_type": "VISA"
+        }
+    },
+    "links": [
+        {
+            "href": "https://api.paypal.com/v2/checkout/orders/order123/authorize",
+            "rel": "authorize",
+            "method": "POST"
+        },
+        {
+            "href": "https://api.paypal.com/v2/checkout/orders/order123/capture",
+            "rel": "capture",
+            "method": "POST"
+        }
+    ]
+}

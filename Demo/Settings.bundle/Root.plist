@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Environment</string>
+			<key>Key</key>
+			<string>environment</string>
+			<key>DefaultValue</key>
+			<string>sandbox</string>
+			<key>Titles</key>
+			<array>
+				<string>Local</string>
+				<string>Sandbox</string>
+				<string>Production</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>local</string>
+				<string>sandbox</string>
+				<string>production</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Intent</string>
+			<key>Key</key>
+			<string>intent</string>
+			<key>DefaultValue</key>
+			<string>capture</string>
+			<key>Titles</key>
+			<array>
+				<string>Capture</string>
+				<string>Authorize</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>capture</string>
+				<string>authorize</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Merchant Account</string>
+			<key>Key</key>
+			<string>countryCode</string>
+			<key>DefaultValue</key>
+			<string>US</string>
+			<key>Titles</key>
+			<array>
+				<string>US</string>
+				<string>UK</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>US</string>
+				<string>UK</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

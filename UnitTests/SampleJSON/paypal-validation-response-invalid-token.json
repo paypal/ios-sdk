@@ -1,0 +1,4 @@
+{
+    "error" : "invalid_token",
+    "error_description" : "Token signature verification failed"
+}

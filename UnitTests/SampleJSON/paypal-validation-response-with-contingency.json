@@ -1,0 +1,24 @@
+{
+    "name": "UNPROCESSABLE_ENTITY",
+    "details": [
+        {
+            "issue": "CONTINGENCY",
+            "description": "Buyer needs to resolve following contingency before proceeding with payment"
+        }
+    ],
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "links": [
+        {
+            "href": "www.contingency.com",
+            "rel": "3ds-contingency-resolution",
+            "method": "GET"
+        },
+        {
+            "href": "developer.paypal.com",
+            "rel": "information_link",
+            "method": "GET"
+        }
+    ],
+    "debug_id": "ae6e6388ea33a",
+    "informationLink": "https://developer.paypal.com/docs/api/orders#errors"
+}
