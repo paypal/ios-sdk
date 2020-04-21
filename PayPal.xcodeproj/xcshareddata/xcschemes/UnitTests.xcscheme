@@ -10,16 +10,27 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4B4697A9414FB7705D81377724D5D644"
+            BuildableName = "libPayPalCommercePlatform.a"
+            BlueprintName = "PayPalCommercePlatform"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "804588CF238489F800936C3A"
-               BuildableName = "IntegrationTests.xctest"
-               BlueprintName = "IntegrationTests"
-               ReferencedContainer = "container:PayPalCommercePlatform.xcodeproj">
+               BlueprintIdentifier = "8066A04B235F5026007ACC28"
+               BuildableName = "UnitTests.xctest"
+               BlueprintName = "UnitTests"
+               ReferencedContainer = "container:PayPal.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

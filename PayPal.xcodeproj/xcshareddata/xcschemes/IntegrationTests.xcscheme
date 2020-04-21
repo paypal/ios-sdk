@@ -16,10 +16,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4294F151237B5BB600A789E5"
-               BuildableName = "UITests.xctest"
-               BlueprintName = "UITests"
-               ReferencedContainer = "container:PayPalCommercePlatform.xcodeproj">
+               BlueprintIdentifier = "804588CF238489F800936C3A"
+               BuildableName = "IntegrationTests.xctest"
+               BlueprintName = "IntegrationTests"
+               ReferencedContainer = "container:PayPal.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

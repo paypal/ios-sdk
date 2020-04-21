@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:BraintreePayPalValidator.xcodeproj">
+      location = "self:/Users/scannillo/pp/ios-sdk/PayPal.xcodeproj">
    </FileRef>
 </Workspace>

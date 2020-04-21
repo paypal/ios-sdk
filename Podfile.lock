@@ -28,7 +28,7 @@ PODS:
     - Braintree/Card
     - Braintree/Core
   - InAppSettingsKit (2.14)
-  - PayPalCommercePlatform (0.0.1):
+  - PayPal (0.0.1):
     - Braintree
     - Braintree/Apple-Pay
     - Braintree/PaymentFlow
@@ -36,7 +36,7 @@ PODS:
 DEPENDENCIES:
   - Braintree (~> 4.33)
   - InAppSettingsKit
-  - PayPalCommercePlatform (from `./`)
+  - PayPal (from `./`)
 
 SPEC REPOS:
   trunk:
@@ -44,14 +44,14 @@ SPEC REPOS:
     - InAppSettingsKit
 
 EXTERNAL SOURCES:
-  PayPalCommercePlatform:
+  PayPal:
     :path: "./"
 
 SPEC CHECKSUMS:
   Braintree: 586e4d274398fabe9d70ab790eefca41660b8a17
   InAppSettingsKit: 800853da39388780c15191846688c0974c5b13b5
-  PayPalCommercePlatform: 1d562d68825c155e393f68412182163ace4a2388
+  PayPal: 369e3bdef937ad496d48c1c9c588148fcbb11627
 
-PODFILE CHECKSUM: 340717a79bd8145032f9be1fffa57f86335d51cc
+PODFILE CHECKSUM: d004ae3c12a9e1a9fa672b07e1d62d14094cb96a
 
 COCOAPODS: 1.9.1
