@@ -121,7 +121,17 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
     self.orderId = orderId;
     [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.paypal-checkout.started"];
 
-    NSURL *payPalCheckoutURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/checkoutnow?token=%@", self.payPalUAT.basePayPalURL, self.orderId]];
+    NSString *baseURL;
+    if (self.payPalUAT.environment == BTPayPalUATEnvironmentProd) {
+        baseURL = @"https://www.paypal.com";
+    } else if (self.payPalUAT.environment == BTPayPalUATEnvironmentSand) {
+        baseURL = @"https://www.sandbox.paypal.com";
+    } else if (self.payPalUAT.environment == BTPayPalUATEnvironmentStage) {
+        baseURL = @"https://www.msmaster.qa.paypal.com";
+    }
+
+    NSURL *payPalCheckoutURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/checkoutnow?token=%@", baseURL, self.orderId]];
+
     PPCPayPalCheckoutRequest *request = [[PPCPayPalCheckoutRequest new] initWithCheckoutURL:payPalCheckoutURL];
 
     self.paymentFlowDriver.viewControllerPresentingDelegate = self.presentingDelegate;

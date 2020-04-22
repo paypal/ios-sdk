@@ -34,24 +34,31 @@ PODS:
     - Braintree/PaymentFlow
 
 DEPENDENCIES:
-  - Braintree (~> 4.33)
+  - Braintree (from `https://github.com/braintree/braintree_ios.git`, branch `uat-env`)
   - InAppSettingsKit
   - PayPal (from `./`)
 
 SPEC REPOS:
   trunk:
-    - Braintree
     - InAppSettingsKit
 
 EXTERNAL SOURCES:
+  Braintree:
+    :branch: uat-env
+    :git: https://github.com/braintree/braintree_ios.git
   PayPal:
     :path: "./"
+
+CHECKOUT OPTIONS:
+  Braintree:
+    :commit: 1fee7c09243a15266bf3ce102cc187c2fc846fe1
+    :git: https://github.com/braintree/braintree_ios.git
 
 SPEC CHECKSUMS:
   Braintree: 586e4d274398fabe9d70ab790eefca41660b8a17
   InAppSettingsKit: 800853da39388780c15191846688c0974c5b13b5
   PayPal: 369e3bdef937ad496d48c1c9c588148fcbb11627
 
-PODFILE CHECKSUM: d004ae3c12a9e1a9fa672b07e1d62d14094cb96a
+PODFILE CHECKSUM: 06f833fd9b30d28d177cc4b1d60b2f9abbf69bb1
 
 COCOAPODS: 1.9.1

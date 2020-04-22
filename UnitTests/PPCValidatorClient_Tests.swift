@@ -522,4 +522,68 @@ class PPCValidatorClient_Tests: XCTestCase {
         
         waitForExpectations(timeout: 1.0, handler: nil)
     }
+
+    func testCheckoutWithPayPal_paymentFlowRequest_containsSandboxCheckoutURL() {
+        let expectation = self.expectation(description: "calls completion")
+
+        mockPaymentFlowDriver.onStartPaymentFlow = { (request: BTPaymentFlowRequest) -> Void in
+            XCTAssertEqual((request as! PPCPayPalCheckoutRequest).checkoutURL, URL(string: "https://www.sandbox.paypal.com/checkoutnow?token=fake-order"))
+        }
+
+        validatorClient?.checkoutWithPayPal(orderID: "fake-order") { (validatorResult, error) in
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 1.0, handler: nil)
+    }
+
+    func testCheckoutWithPayPal_paymentFlowRequest_containsStagingCheckoutURL() {
+        let expectation = self.expectation(description: "calls completion")
+
+        let uatParams: [String : Any] = [
+          "iss": "https://api.msmaster.qa.paypal.com",
+          "external_ids": [
+            "Braintree:merchant-id"
+          ]
+        ]
+
+        validatorClient = PPCValidatorClient(accessToken: PayPalUATTestHelper.encodeUAT(uatParams))
+        mockPaymentFlowDriver = MockPaymentFlowDriver(apiClient: mockBTAPIClient)
+        validatorClient?.paymentFlowDriver = mockPaymentFlowDriver
+
+        mockPaymentFlowDriver.onStartPaymentFlow = { (request: BTPaymentFlowRequest) -> Void in
+            XCTAssertEqual((request as! PPCPayPalCheckoutRequest).checkoutURL, URL(string: "https://www.msmaster.qa.paypal.com/checkoutnow?token=fake-order"))
+        }
+
+        validatorClient?.checkoutWithPayPal(orderID: "fake-order") { (validatorResult, error) in
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 1.0, handler: nil)
+    }
+
+    func testCheckoutWithPayPal_paymentFlowRequest_containsProductionCheckoutURL() {
+        let expectation = self.expectation(description: "calls completion")
+
+        let uatParams: [String : Any] = [
+            "iss": "https://api.paypal.com",
+            "external_ids": [
+                "Braintree:merchant-id"
+            ]
+        ]
+
+        validatorClient = PPCValidatorClient(accessToken: PayPalUATTestHelper.encodeUAT(uatParams))
+        mockPaymentFlowDriver = MockPaymentFlowDriver(apiClient: mockBTAPIClient)
+        validatorClient?.paymentFlowDriver = mockPaymentFlowDriver
+
+        mockPaymentFlowDriver.onStartPaymentFlow = { (request: BTPaymentFlowRequest) -> Void in
+            XCTAssertEqual((request as! PPCPayPalCheckoutRequest).checkoutURL, URL(string: "https://www.paypal.com/checkoutnow?token=fake-order"))
+        }
+
+        validatorClient?.checkoutWithPayPal(orderID: "fake-order") { (validatorResult, error) in
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 1.0, handler: nil)
+    }
 }
