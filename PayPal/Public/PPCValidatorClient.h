@@ -25,6 +25,7 @@
 #endif
 
 #import "PPCValidatorResult.h"
+#import "PPCApplePayValidatorResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -89,11 +90,11 @@ typedef void (^PPCApplePayResultHandler)(BOOL success);
 
  @param orderId A valid PayPal orderID.
  @param paymentRequest A valid `PKPaymentRequest`.
- @param completion Callback that returns a `PPCValidatorResult` on successful checkout or an `error` if a failure occured.
+ @param completion Callback that returns a `PPCApplePayValidatorResult` on successful checkout or an `error` if a failure occured.
  */
 - (void)checkoutWithApplePay:(NSString *)orderId
               paymentRequest:(PKPaymentRequest *)paymentRequest
-                  completion:(void (^)(PPCValidatorResult * _Nullable result, NSError * _Nullable error, _Nullable PPCApplePayResultHandler resultHandler))completion NS_SWIFT_NAME(checkoutWithApplePay(orderID:paymentRequest:completion:));
+                  completion:(void (^)(PPCApplePayValidatorResult * _Nullable result, NSError * _Nullable error, _Nullable PPCApplePayResultHandler resultHandler))completion NS_SWIFT_NAME(checkoutWithApplePay(orderID:paymentRequest:completion:));
 
 @end
 

@@ -27,7 +27,7 @@ PODS:
   - Braintree/UI (4.33.0):
     - Braintree/Card
     - Braintree/Core
-  - InAppSettingsKit (2.14)
+  - InAppSettingsKit (2.15)
   - PayPal (0.0.1):
     - Braintree
     - Braintree/Apple-Pay
@@ -56,7 +56,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Braintree: 586e4d274398fabe9d70ab790eefca41660b8a17
-  InAppSettingsKit: 800853da39388780c15191846688c0974c5b13b5
+  InAppSettingsKit: 4890a44f9df7a1742c632920f0ea939cbeb29ea2
   PayPal: 369e3bdef937ad496d48c1c9c588148fcbb11627
 
 PODFILE CHECKSUM: 06f833fd9b30d28d177cc4b1d60b2f9abbf69bb1
