@@ -44,6 +44,7 @@
 		8077518D236A3D08001B61BE /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8077518C236A3D08001B61BE /* MockURLSession.swift */; };
 		808B1E3A24588ACA00D4CDA7 /* PPCApplePayValidatorResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 808B1E3824588ACA00D4CDA7 /* PPCApplePayValidatorResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		808B1E3B24588ACA00D4CDA7 /* PPCApplePayValidatorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B1E3924588ACA00D4CDA7 /* PPCApplePayValidatorResult.m */; };
+		808B1E3D24589CF700D4CDA7 /* MockPKPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B1E3C24589CF700D4CDA7 /* MockPKPayment.swift */; };
 		809E0A8F23C7D7AD00D9A2C0 /* MockPPDataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E0A8E23C7D7AD00D9A2C0 /* MockPPDataCollector.swift */; };
 		80ADA74B234644AE00579E7A /* DemoMerchantAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA74A234644AE00579E7A /* DemoMerchantAPI.swift */; };
 		80ADA74F23464A8900579E7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80ADA74E23464A8900579E7A /* Main.storyboard */; };
@@ -145,6 +146,7 @@
 		8077518C236A3D08001B61BE /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		808B1E3824588ACA00D4CDA7 /* PPCApplePayValidatorResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCApplePayValidatorResult.h; sourceTree = "<group>"; };
 		808B1E3924588ACA00D4CDA7 /* PPCApplePayValidatorResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCApplePayValidatorResult.m; sourceTree = "<group>"; };
+		808B1E3C24589CF700D4CDA7 /* MockPKPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPKPayment.swift; sourceTree = "<group>"; };
 		809E0A8E23C7D7AD00D9A2C0 /* MockPPDataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPPDataCollector.swift; sourceTree = "<group>"; };
 		80ADA74A234644AE00579E7A /* DemoMerchantAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMerchantAPI.swift; sourceTree = "<group>"; };
 		80ADA74E23464A8900579E7A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				42986C05235E4B9F00D31176 /* MockViewControllerPresentingDelegate.swift */,
 				809E0A8E23C7D7AD00D9A2C0 /* MockPPDataCollector.swift */,
 				423AB53923EDC9D700B3E06A /* PayPalUATTestHelper.swift */,
+				808B1E3C24589CF700D4CDA7 /* MockPKPayment.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				803F7C2923E8BC8900F9D70A /* PPCPayPalCheckoutRequest_Tests.swift in Sources */,
 				4276306D2360E91B00A8734E /* MockCardClient.swift in Sources */,
 				423AB53A23EDC9D700B3E06A /* PayPalUATTestHelper.swift in Sources */,
+				808B1E3D24589CF700D4CDA7 /* MockPKPayment.swift in Sources */,
 				425B8325236CEBF7006F694D /* MockPaymentFlowDriverDelegate.swift in Sources */,
 				803F7C2B23E8BF5D00F9D70A /* MockBTAPIClient.swift in Sources */,
 				425B8315236CBDEC006F694D /* BTJSONHelper.swift in Sources */,

@@ -147,10 +147,60 @@ class PPCValidatorClient_Tests: XCTestCase {
                 XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-commerce-platform.apple-pay-checkout.succeeded"))
                 expectation.fulfill()
             }
-            
+
             let delegate = validatorClient as? PKPaymentAuthorizationViewControllerDelegate
             delegate?.paymentAuthorizationViewController?(PKPaymentAuthorizationViewController(), didAuthorizePayment: PKPayment(), handler: { _ in })
             
+            waitForExpectations(timeout: 1.0, handler: nil)
+        }
+    }
+
+    func testDidAuthorizePayment_withPKPaymentParams_callsCompletionWithResultParamsIncluded() {
+        if #available(iOS 11.0, *) {
+            let expectation = self.expectation(description: "payment authorization delegate calls completion with apple pay validator result")
+
+            // Create PKPayment
+            var shippingName = PersonNameComponents()
+            shippingName.givenName = "Alicia"
+
+            let address = CNMutablePostalAddress.init()
+            address.city = "Berlin"
+
+            var billingName = PersonNameComponents()
+            billingName.givenName = "Lady"
+            billingName.familyName = "Gaga"
+
+            let shippingContact = PKContact()
+            shippingContact.name = shippingName
+            shippingContact.postalAddress = address
+
+            let billingContact = PKContact()
+            billingContact.name = billingName
+            billingContact.postalAddress = address
+
+            let shippingMethod = PKShippingMethod(label: "Sneakers", amount: 99.99)
+
+            let payment = MockPKPayment(shippingContact: shippingContact, billingContact: billingContact, shippingMethod: shippingMethod)
+
+            mockPayPalAPIClient.validationResult = PPCValidationResult()
+
+            validatorClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (result, error, handler) in
+                XCTAssertEqual(result?.orderID, "fake-order")
+                XCTAssertEqual(result?.billingContact.name?.givenName, "Lady")
+                XCTAssertEqual(result?.billingContact.name?.familyName, "Gaga")
+                XCTAssertEqual(result?.shippingContact.name?.givenName, "Alicia")
+                XCTAssertEqual(result?.shippingContact.postalAddress?.city, "Berlin")
+                XCTAssertEqual(result?.billingContact.postalAddress?.city, "Berlin")
+                XCTAssertEqual(result?.shippingMethod.label, "Sneakers")
+                XCTAssertEqual(result?.shippingMethod.amount, 99.99)
+                XCTAssertEqual(result?.type, .applePay)
+
+                expectation.fulfill()
+            }
+
+            let delegate = validatorClient as? PKPaymentAuthorizationViewControllerDelegate
+            delegate?.paymentAuthorizationViewController?(PKPaymentAuthorizationViewController(), didAuthorizePayment: payment, handler: { _ in })
+
             waitForExpectations(timeout: 1.0, handler: nil)
         }
     }
