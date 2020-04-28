@@ -255,11 +255,11 @@
 				4276306E2360F05A00A8734E /* MockPaymentFlowDriver.swift */,
 				425B8324236CEBF7006F694D /* MockPaymentFlowDriverDelegate.swift */,
 				8066A05D235F5E9C007ACC28 /* MockPayPalAPIClient.swift */,
+				808B1E3C24589CF700D4CDA7 /* MockPKPayment.swift */,
+				809E0A8E23C7D7AD00D9A2C0 /* MockPPDataCollector.swift */,
 				8077518C236A3D08001B61BE /* MockURLSession.swift */,
 				42986C05235E4B9F00D31176 /* MockViewControllerPresentingDelegate.swift */,
-				809E0A8E23C7D7AD00D9A2C0 /* MockPPDataCollector.swift */,
 				423AB53923EDC9D700B3E06A /* PayPalUATTestHelper.swift */,
-				808B1E3C24589CF700D4CDA7 /* MockPKPayment.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

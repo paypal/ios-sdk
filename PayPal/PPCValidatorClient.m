@@ -215,19 +215,16 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
                 return;
             }
 
-//            PPCValidatorResult *validatorResult = [PPCValidatorResult new];
-//            validatorResult.orderID = self.orderId;
-//            validatorResult.type = PPCValidatorResultTypeApplePay;
+            PPCApplePayValidatorResult *applePayValidatorResult = [PPCApplePayValidatorResult new];
+            applePayValidatorResult.orderID = self.orderId;
+            applePayValidatorResult.type = PPCValidatorResultTypeApplePay;
 
-            PPCApplePayValidatorResult *checkoutResult = [PPCApplePayValidatorResult new];
-            checkoutResult.orderID = self.orderId;
-            checkoutResult.type = PPCValidatorResultTypeApplePay;
-            checkoutResult.billingContact = payment.billingContact;
-            checkoutResult.shippingContact = payment.shippingContact;
-            checkoutResult.shippingMethod = payment.shippingMethod;
+            applePayValidatorResult.billingContact = payment.billingContact;
+            applePayValidatorResult.shippingContact = payment.shippingContact;
+            applePayValidatorResult.shippingMethod = payment.shippingMethod;
 
             [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.apple-pay-checkout.succeeded"];
-            completion(checkoutResult, error);
+            completion(applePayValidatorResult, error);
         }];
     }];
 }
