@@ -9,3 +9,5 @@ FOUNDATION_EXPORT const unsigned char PayPalCommerceVersionString[];
 #import "PPCValidatorClient.h"
 #import "PPCValidatorResult.h"
 #import "PPCApplePayValidatorResult.h"
+#import "PPCPayPalValidatorResult.h"
+#import "PPCCardValidatorResult.h"

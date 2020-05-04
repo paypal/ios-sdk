@@ -139,7 +139,6 @@ class PPCValidatorClient_Tests: XCTestCase {
             
             validatorClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (validatorResult, error, handler) in
                 XCTAssertEqual(validatorResult?.orderID, "fake-order")
-                XCTAssertEqual(validatorResult?.type, .applePay)
                 XCTAssertNil(error)
                 XCTAssertNotNil(handler)
                 
@@ -193,7 +192,6 @@ class PPCValidatorClient_Tests: XCTestCase {
                 XCTAssertEqual(result?.billingContact.postalAddress?.city, "Berlin")
                 XCTAssertEqual(result?.shippingMethod.label, "Sneakers")
                 XCTAssertEqual(result?.shippingMethod.amount, 99.99)
-                XCTAssertEqual(result?.type, .applePay)
 
                 expectation.fulfill()
             }
@@ -302,7 +300,6 @@ class PPCValidatorClient_Tests: XCTestCase {
 
         validatorClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (validatorResult, error, handler) in
             XCTAssertEqual(validatorResult?.orderID, "fake-order")
-            XCTAssertEqual(validatorResult?.type, .applePay)
             XCTAssertNil(error)
             XCTAssertNotNil(handler)
             // TODO - test that handler is called correctly
@@ -400,7 +397,6 @@ class PPCValidatorClient_Tests: XCTestCase {
         
         validatorClient?.checkoutWithCard(orderID: "fake-order", card: BTCard()) { (validatorResult, error) in
             XCTAssertEqual(validatorResult?.orderID, "fake-order")
-            XCTAssertEqual(validatorResult?.type, .card)
             XCTAssertNil(error)
 
             XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-commerce-platform.card-checkout.started"))
@@ -433,7 +429,6 @@ class PPCValidatorClient_Tests: XCTestCase {
         
         validatorClient?.checkoutWithCard(orderID: "fake-order", card: BTCard()) { (validatorResult, error) in
             XCTAssertEqual(validatorResult?.orderID, "fake-order")
-            XCTAssertEqual(validatorResult?.type, .card)
             XCTAssertNil(error)
 
             XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-commerce-platform.card-contingency.started"))
@@ -529,7 +524,6 @@ class PPCValidatorClient_Tests: XCTestCase {
                 
         validatorClient?.checkoutWithPayPal(orderID: "fake-order") { (validatorResult, error) in
             XCTAssertEqual(validatorResult?.orderID, "fake-order")
-            XCTAssertEqual(validatorResult?.type, .payPal)
             XCTAssertNil(error)
 
             XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-commerce-platform.paypal-checkout.started"))

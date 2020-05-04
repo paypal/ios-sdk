@@ -1,4 +1,3 @@
-#import <Foundation/Foundation.h>
 #import <PassKit/PassKit.h>
 #import "PPCValidatorResult.h"
 

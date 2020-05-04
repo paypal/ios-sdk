@@ -2,8 +2,6 @@
 #import "PPCValidatorClient_Internal.h"
 #import "PPCCardContingencyRequest.h"
 #import "PPCPayPalCheckoutRequest.h"
-#import "PPCValidatorResult.h"
-#import "PPCApplePayValidatorResult.h"
 
 NSString * const PPCValidatorErrorDomain = @"com.braintreepayments.PPCValidatorClientErrorDomain";
 
@@ -57,7 +55,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
 
 - (void)checkoutWithCard:(NSString *)orderID
                     card:(BTCard *)card
-              completion:(void (^)(PPCValidatorResult * _Nullable validationResult, NSError * _Nullable error))completion {
+              completion:(void (^)(PPCCardValidatorResult * _Nullable result, NSError * _Nullable error))completion {
     self.orderId = orderID;
     [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.card-checkout.started"];
 
@@ -65,9 +63,8 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
         if (tokenizedCard) {
             [self validateTokenizedCard:tokenizedCard completion:^(BOOL success, NSError *error) {
                 if (success) {
-                    PPCValidatorResult *validatorResult = [PPCValidatorResult new];
+                    PPCCardValidatorResult *validatorResult = [PPCCardValidatorResult new];
                     validatorResult.orderID = self.orderId;
-                    validatorResult.type = PPCValidatorResultTypeCard;
 
                     [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.card-checkout.succeeded"];
                     completion(validatorResult, nil);
@@ -118,7 +115,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
 #pragma mark - Checkout with PayPal
 
 - (void)checkoutWithPayPal:(NSString *)orderId
-                completion:(void (^)(PPCValidatorResult * _Nullable validationResult, NSError * _Nullable error))completion {
+                completion:(void (^)(PPCPayPalValidatorResult * _Nullable result, NSError * _Nullable error))completion {
     self.orderId = orderId;
     [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.paypal-checkout.started"];
 
@@ -142,9 +139,8 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
             completion(nil, [self convertToPPCPaymentFlowError:error]);
             return;
         }
-        PPCValidatorResult *validatorResult = [PPCValidatorResult new];
+        PPCPayPalValidatorResult *validatorResult = [PPCPayPalValidatorResult new];
         validatorResult.orderID = self.orderId;
-        validatorResult.type = PPCValidatorResultTypePayPal;
 
         [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.paypal-checkout.succeeded"];
         completion(validatorResult, nil);
@@ -217,7 +213,6 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
 
             PPCApplePayValidatorResult *applePayValidatorResult = [PPCApplePayValidatorResult new];
             applePayValidatorResult.orderID = self.orderId;
-            applePayValidatorResult.type = PPCValidatorResultTypeApplePay;
 
             applePayValidatorResult.billingContact = payment.billingContact;
             applePayValidatorResult.shippingContact = payment.shippingContact;
