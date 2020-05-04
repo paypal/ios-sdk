@@ -63,8 +63,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
         if (tokenizedCard) {
             [self validateTokenizedCard:tokenizedCard completion:^(BOOL success, NSError *error) {
                 if (success) {
-                    PPCCardValidatorResult *validatorResult = [PPCCardValidatorResult new];
-                    validatorResult.orderID = self.orderId;
+                    PPCCardValidatorResult *validatorResult = [[PPCCardValidatorResult alloc] initWithOrderID:self.orderId];
 
                     [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.card-checkout.succeeded"];
                     completion(validatorResult, nil);
@@ -139,8 +138,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
             completion(nil, [self convertToPPCPaymentFlowError:error]);
             return;
         }
-        PPCPayPalValidatorResult *validatorResult = [PPCPayPalValidatorResult new];
-        validatorResult.orderID = self.orderId;
+        PPCPayPalValidatorResult *validatorResult = [[PPCPayPalValidatorResult alloc] initWithOrderID:self.orderId];
 
         [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.paypal-checkout.succeeded"];
         completion(validatorResult, nil);
@@ -211,8 +209,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
                 return;
             }
 
-            PPCApplePayValidatorResult *applePayValidatorResult = [PPCApplePayValidatorResult new];
-            applePayValidatorResult.orderID = self.orderId;
+            PPCApplePayValidatorResult *applePayValidatorResult = [[PPCApplePayValidatorResult alloc] initWithOrderID:self.orderId];
 
             applePayValidatorResult.billingContact = payment.billingContact;
             applePayValidatorResult.shippingContact = payment.shippingContact;

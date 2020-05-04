@@ -10,7 +10,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Order ID associated with the checkout
  */
-@property (nonatomic, copy) NSString *orderID;
+@property (readonly, nonatomic, copy) NSString *orderID;
+
+/**
+ Initializes result of a successful checkout flow with the associated Order ID.
+ 
+ @param orderID A valid PayPal Order ID.
+ @return A PPCPaymentDetails instance.
+ */
+- (instancetype)initWithOrderID:(NSString *)orderID NS_DESIGNATED_INITIALIZER;
 
 @end
 
