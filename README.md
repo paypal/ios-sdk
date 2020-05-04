@@ -6,6 +6,8 @@ This repository is currently in development. The PayPal iOS SDK is not meant for
 ## About
 This is a native SDK offering to current PayPal partners. It allows existing PayPal partners to use Apple Pay and to get the benefits of Three D Secure verification. This module provides an “unbranded” checkout experience to merchants already integrated with PayPal. The prerequisite for using this module is that the merchant already has an existing PayPal server integration using Orders V2. Their server must be able to generate a PayPal client auth token and complete transactions using the PayPal backend.
 
+[Reference docs](https://paypal.github.io/ios-sdk/index.html)
+
 ## Running the Demo App
 
 - Inside of your cloned repo, run `pod install` to install project dependencies. Here are [instructions to install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) if you don't already have it.
