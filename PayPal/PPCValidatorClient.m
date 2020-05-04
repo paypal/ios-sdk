@@ -209,11 +209,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
                 return;
             }
 
-            PPCApplePayValidatorResult *applePayValidatorResult = [[PPCApplePayValidatorResult alloc] initWithOrderID:self.orderId];
-
-            applePayValidatorResult.billingContact = payment.billingContact;
-            applePayValidatorResult.shippingContact = payment.shippingContact;
-            applePayValidatorResult.shippingMethod = payment.shippingMethod;
+            PPCApplePayValidatorResult *applePayValidatorResult = [[PPCApplePayValidatorResult alloc] initWithOrderID:self.orderId payment:payment];
 
             [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.apple-pay-checkout.succeeded"];
             completion(applePayValidatorResult, error);

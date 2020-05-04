@@ -5,11 +5,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PPCApplePayValidatorResult : PPCValidatorResult
 
-@property (nullable, nonatomic, strong) PKContact *billingContact;
+@property (nullable, readonly, nonatomic, strong) PKContact *billingContact;
 
-@property (nullable, nonatomic, strong) PKContact *shippingContact;
+@property (nullable, readonly, nonatomic, strong) PKContact *shippingContact;
 
-@property (nullable, nonatomic, strong) PKShippingMethod *shippingMethod;
+@property (nullable, readonly, nonatomic, strong) PKShippingMethod *shippingMethod;
+
+- (instancetype)initWithOrderID:(NSString *)orderID payment:(PKPayment *)payment NS_DESIGNATED_INITIALIZER;
 
 @end
 
