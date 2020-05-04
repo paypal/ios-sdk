@@ -3,33 +3,22 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- The result of a succesful checkout flow
+ The result of a successful checkout flow
  */
 @interface PPCValidatorResult : NSObject
 
 /**
- Result type
- */
-typedef NS_ENUM(NSInteger, PPCValidatorResultType) {
-    /// Card
-    PPCValidatorResultTypeCard = 0,
-
-    /// PayPal
-    PPCValidatorResultTypePayPal,
-
-    /// ApplePay
-    PPCValidatorResultTypeApplePay,
-};
-
-/**
  Order ID associated with the checkout
  */
-@property (nonatomic, copy) NSString *orderID;
+@property (readonly, nonatomic, copy) NSString *orderID;
 
 /**
- Payment method type of the checkout
+ Initializes result of a successful checkout flow with the associated Order ID.
+ 
+ @param orderID A valid PayPal Order ID.
+ @return A PPCPaymentDetails instance.
  */
-@property (nonatomic, assign) PPCValidatorResultType type;
+- (instancetype)initWithOrderID:(NSString *)orderID NS_DESIGNATED_INITIALIZER;
 
 @end
 

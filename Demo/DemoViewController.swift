@@ -83,13 +83,13 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
         ]
 
         self.updateCheckoutLabel(withText: "Checking out with Apple Pay ...")
-        payPalValidatorClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest, completion: { (validatorResult, error, applePayResultHandler) in
-            guard let validatorResult = validatorResult, let resultHandler = applePayResultHandler else {
+        payPalValidatorClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest, completion: { (applePayValidatorResult, error, applePayResultHandler) in
+            guard let result = applePayValidatorResult, let resultHandler = applePayResultHandler else {
                 self.updateCheckoutLabel(withText: "ApplePay Error: \(error?.localizedDescription ?? "error")")
                 return
             }
 
-            self.updateCheckoutLabel(withText: "ApplePay successful: \(validatorResult.orderID)")
+            self.updateCheckoutLabel(withText: "ApplePay successful: \(result.orderID)")
             self.processOrderButton.isEnabled = true
 
             resultHandler(true)

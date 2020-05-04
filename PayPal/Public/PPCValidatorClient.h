@@ -24,7 +24,9 @@
 #import <PayPalDataCollector/PPDataCollector.h>
 #endif
 
-#import "PPCValidatorResult.h"
+#import "PPCApplePayValidatorResult.h"
+#import "PPCCardValidatorResult.h"
+#import "PPCPayPalValidatorResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -63,11 +65,11 @@ typedef void (^PPCApplePayResultHandler)(BOOL success);
 
  @param orderId A valid PayPal orderID.
  @param card A `BTCard` object that contains customer's card details.
- @param completion Callback that returns a `PPCValidatorResult` on successful checkout or an `error` if a failure occured.
+ @param completion Callback that returns a `PPCCardValidatorResult` on successful checkout or an `error` if a failure occured.
  */
 - (void)checkoutWithCard:(NSString *)orderId
                     card:(BTCard *)card
-              completion:(void (^)(PPCValidatorResult * _Nullable result, NSError * _Nullable error))completion NS_SWIFT_NAME(checkoutWithCard(orderID:card:completion:));
+              completion:(void (^)(PPCCardValidatorResult * _Nullable result, NSError * _Nullable error))completion NS_SWIFT_NAME(checkoutWithCard(orderID:card:completion:));
 
 /**
  @brief Initiates the Pay with PayPal checkout flow.
@@ -75,10 +77,10 @@ typedef void (^PPCApplePayResultHandler)(BOOL success);
  @discussion Redirects user to a `SFSafariViewController` to login with their PayPal account to complete a PayPal checkout.
 
  @param orderId A valid PayPal orderID.
- @param completion Callback that returns a `PPCValidatorResult` on successful checkout or an `error` if a failure occured.
+ @param completion Callback that returns a `PPCPayPalValidatorResult` on successful checkout or an `error` if a failure occured.
  */
 - (void)checkoutWithPayPal:(NSString *)orderId
-                completion:(void (^)(PPCValidatorResult * _Nullable result, NSError * _Nullable error))completion NS_SWIFT_NAME(checkoutWithPayPal(orderID:completion:));
+                completion:(void (^)(PPCPayPalValidatorResult * _Nullable result, NSError * _Nullable error))completion NS_SWIFT_NAME(checkoutWithPayPal(orderID:completion:));
 
 /**
  @brief Initiates an Apple Pay checkout flow.
@@ -89,11 +91,11 @@ typedef void (^PPCApplePayResultHandler)(BOOL success);
 
  @param orderId A valid PayPal orderID.
  @param paymentRequest A valid `PKPaymentRequest`.
- @param completion Callback that returns a `PPCValidatorResult` on successful checkout or an `error` if a failure occured.
+ @param completion Callback that returns a `PPCApplePayValidatorResult` on successful checkout or an `error` if a failure occured.
  */
 - (void)checkoutWithApplePay:(NSString *)orderId
               paymentRequest:(PKPaymentRequest *)paymentRequest
-                  completion:(void (^)(PPCValidatorResult * _Nullable result, NSError * _Nullable error, _Nullable PPCApplePayResultHandler resultHandler))completion NS_SWIFT_NAME(checkoutWithApplePay(orderID:paymentRequest:completion:));
+                  completion:(void (^)(PPCApplePayValidatorResult * _Nullable result, NSError * _Nullable error, _Nullable PPCApplePayResultHandler resultHandler))completion NS_SWIFT_NAME(checkoutWithApplePay(orderID:paymentRequest:completion:));
 
 @end
 
