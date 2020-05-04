@@ -185,13 +185,13 @@ class PPCValidatorClient_Tests: XCTestCase {
 
             validatorClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (result, error, handler) in
                 XCTAssertEqual(result?.orderID, "fake-order")
-                XCTAssertEqual(result?.billingContact.name?.givenName, "Lady")
-                XCTAssertEqual(result?.billingContact.name?.familyName, "Gaga")
-                XCTAssertEqual(result?.shippingContact.name?.givenName, "Alicia")
-                XCTAssertEqual(result?.shippingContact.postalAddress?.city, "Berlin")
-                XCTAssertEqual(result?.billingContact.postalAddress?.city, "Berlin")
-                XCTAssertEqual(result?.shippingMethod.label, "Sneakers")
-                XCTAssertEqual(result?.shippingMethod.amount, 99.99)
+                XCTAssertEqual(result?.billingContact?.name?.givenName, "Lady")
+                XCTAssertEqual(result?.billingContact?.name?.familyName, "Gaga")
+                XCTAssertEqual(result?.shippingContact?.name?.givenName, "Alicia")
+                XCTAssertEqual(result?.shippingContact?.postalAddress?.city, "Berlin")
+                XCTAssertEqual(result?.billingContact?.postalAddress?.city, "Berlin")
+                XCTAssertEqual(result?.shippingMethod?.label, "Sneakers")
+                XCTAssertEqual(result?.shippingMethod?.amount, 99.99)
 
                 expectation.fulfill()
             }
