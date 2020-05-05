@@ -102,7 +102,7 @@ class PYPLAPIClient_Tests: XCTestCase {
             XCTAssertNotNil(result)
             XCTAssertNil(result?.contingencyURL)
             XCTAssertNil(error)
-            XCTAssertTrue(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-commerce-platform.validate.succeeded"))
+            XCTAssertTrue(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.validate.succeeded"))
             expectation.fulfill()
         }
 
@@ -151,7 +151,7 @@ class PYPLAPIClient_Tests: XCTestCase {
         payPalAPIClient.validatePaymentMethod(nonce, forOrderId: "order-id", with3DS: false) { (result, error) in
             XCTAssertNil(result)
             XCTAssertEqual(error?.localizedDescription, "Token signature verification failed")
-            XCTAssertTrue(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-commerce-platform.validate.failed"))
+            XCTAssertTrue(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.validate.failed"))
             expectation.fulfill()
         }
 
@@ -168,7 +168,7 @@ class PYPLAPIClient_Tests: XCTestCase {
         payPalAPIClient.validatePaymentMethod(nonce, forOrderId: "order-id", with3DS: false) { (result, error) in
             XCTAssertNil(result)
             XCTAssertEqual(error?.localizedDescription, "An error occurred")
-            XCTAssertTrue(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-commerce-platform.validate.failed"))
+            XCTAssertTrue(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.validate.failed"))
             expectation.fulfill()
         }
 

@@ -84,6 +84,6 @@ class PYPLPayPalPaymentFlowRequest_Tests: XCTestCase {
     // MARK: - paymentFlowName
 
     func testPaymentFlowName() {
-        XCTAssertEqual(request.paymentFlowName(), "paypal-commerce-platform-pwpp")
+        XCTAssertEqual(request.paymentFlowName(), "paypal-sdk-pwpp")
     }
 }

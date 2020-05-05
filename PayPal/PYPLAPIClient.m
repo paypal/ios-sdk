@@ -20,7 +20,7 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
         NSError *error;
         _payPalUAT = [[BTPayPalUAT alloc] initWithUATString:accessToken error:&error];
         if (error || !_payPalUAT) {
-            NSLog(@"[PayPalCommercePlatformSDK] %@", error.localizedDescription ?: @"Error initializing PayPal UAT");
+            NSLog(@"[PayPalSDK] %@", error.localizedDescription ?: @"Error initializing PayPal UAT");
             return nil;
         }
     }
@@ -48,7 +48,7 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
     [[self.urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.validate.failed"];
+                [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-sdk.validate.failed"];
                 completion(nil, error);
                 return;
             }
@@ -76,13 +76,13 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
                     NSError *validateError = [[NSError alloc] initWithDomain:PYPLAPIClientErrorDomain
                                                                         code:0 userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
                     
-                    [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.validate.failed"];
+                    [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-sdk.validate.failed"];
                     completion(nil, validateError);
                     return;
                 }
             }
             
-            [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-commerce-platform.validate.succeeded"];
+            [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-sdk.validate.succeeded"];
             completion(result, nil);
         });
     }] resume];

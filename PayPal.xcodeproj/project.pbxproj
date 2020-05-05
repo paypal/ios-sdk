@@ -64,7 +64,7 @@
 		80B36CE523454EC000AD35E8 /* PYPLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CE323454EC000AD35E8 /* PYPLClient.m */; };
 		80BAD283234531B50050F86C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BAD282234531B50050F86C /* Assets.xcassets */; };
 		80BAD286234531B50050F86C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80BAD284234531B50050F86C /* LaunchScreen.storyboard */; };
-		80BAD298234532A30050F86C /* PayPalCommercePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 80BAD296234532A30050F86C /* PayPalCommercePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80BAD298234532A30050F86C /* PayPal.h in Headers */ = {isa = PBXBuildFile; fileRef = 80BAD296234532A30050F86C /* PayPal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80C74F1F2437D38B009B8B00 /* PYPLPayPalPaymentFlowResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C74F1E2437D38B009B8B00 /* PYPLPayPalPaymentFlowResult_Tests.swift */; };
 		80EA9B0D24607BE100DC0A16 /* PYPLPayPalCheckoutResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA9B0B24607BE100DC0A16 /* PYPLPayPalCheckoutResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80EA9B0E24607BE100DC0A16 /* PYPLPayPalCheckoutResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA9B0C24607BE100DC0A16 /* PYPLPayPalCheckoutResult.m */; };
@@ -173,7 +173,7 @@
 		80BAD285234531B50050F86C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80BAD287234531B50050F86C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80BAD294234532A30050F86C /* PayPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PayPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		80BAD296234532A30050F86C /* PayPalCommercePlatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalCommercePlatform.h; sourceTree = "<group>"; };
+		80BAD296234532A30050F86C /* PayPal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPal.h; sourceTree = "<group>"; };
 		80BAD297234532A30050F86C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80C74F1E2437D38B009B8B00 /* PYPLPayPalPaymentFlowResult_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPLPayPalPaymentFlowResult_Tests.swift; sourceTree = "<group>"; };
 		80EA9B0B24607BE100DC0A16 /* PYPLPayPalCheckoutResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLPayPalCheckoutResult.h; sourceTree = "<group>"; };
@@ -348,7 +348,7 @@
 		80B36CB423453DB800AD35E8 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				80BAD296234532A30050F86C /* PayPalCommercePlatform.h */,
+				80BAD296234532A30050F86C /* PayPal.h */,
 				808B1E3824588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.h */,
 				80EA9B0F24607C0100DC0A16 /* PYPLCardCheckoutResult.h */,
 				80EA9B0B24607BE100DC0A16 /* PYPLPayPalCheckoutResult.h */,
@@ -443,7 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80B36CD023454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.h in Headers */,
-				80BAD298234532A30050F86C /* PayPalCommercePlatform.h in Headers */,
+				80BAD298234532A30050F86C /* PayPal.h in Headers */,
 				80015A2D23566AD6002825E1 /* PYPLCheckoutResult.h in Headers */,
 				808B1E3A24588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.h in Headers */,
 				801DB2F02412EC0B0074426F /* PYPLValidationResult.h in Headers */,

@@ -1,3 +1,3 @@
-#import <PayPal/PayPalCommercePlatform.h>
+#import <PayPal/PayPal.h>
 #import <InAppSettingsKit/IASKAppSettingsViewController.h>
 #import <Braintree/BraintreeUI.h>

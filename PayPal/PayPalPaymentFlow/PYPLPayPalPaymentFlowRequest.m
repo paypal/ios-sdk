@@ -57,7 +57,7 @@ NSString * const PYPLPayPalPaymentFlowRequestErrorDomain = @"com.braintreepaymen
 }
 
 - (nonnull NSString *)paymentFlowName {
-    return @"paypal-commerce-platform-pwpp";
+    return @"paypal-sdk-pwpp";
 }
 
 @end

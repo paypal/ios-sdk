@@ -1,5 +1,5 @@
 // Public Headers
-#import "PayPalCommercePlatform.h"
+#import "PayPal.h"
 #import "PYPLClient.h"
 
 // Internal headers for testing
