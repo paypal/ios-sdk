@@ -19,11 +19,11 @@ def jazzy_command
   %W[jazzy
       --objc
       --author Braintree
-      --author_url http://braintreepayments.com
+      --author_url https://developer.paypal.com/docs/limited-release/ppcp-sdk/
       --github_url https://github.com/paypal/ios-sdk
       --sdk iphonesimulator
       --output docs_output
-      --xcodebuild-arguments --objc,PayPal/Public/PayPalCommercePlatform.h,--,-x,objective-c,-isysroot,$(xcrun --show-sdk-path),-I,$(pwd)
+      --xcodebuild-arguments --objc,PayPal/Public/PayPal.h,--,-x,objective-c,-isysroot,$(xcrun --show-sdk-path),-I,$(pwd)
       --min-acl internal
       --theme fullwidth
       --module PayPal
