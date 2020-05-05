@@ -1,5 +1,7 @@
 # PayPal iOS SDK
 
+[![Build Status](https://travis-ci.com/paypal/ios-sdk.svg?branch=master)](https://travis-ci.com/paypal/ios-sdk)
+
 ## Note
 This repository is currently in development. The PayPal iOS SDK is not meant for public use. The repo is public for pilot merchants only.
 
