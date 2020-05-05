@@ -1,0 +1,10 @@
+language: objective-c
+osx_image: xcode11.3
+
+cache:
+  bundler: true
+  cocoapods: true
+
+script:
+  - set -o pipefail && xcodebuild -workspace PayPal.xcworkspace -scheme UnitTests -destination platform\=iOS\ Simulator,OS\=13.3,name\=iPhone\ 11 test | bundle exec xcpretty -c
+
