@@ -36,8 +36,8 @@ class CardCheckout_UITests: XCTestCase {
 
         // tap Submit
         app.buttons["Submit"].tap()
-        let validateSuccessPredicate = NSPredicate(format: "label LIKE 'Validate card success:*'")
-        waitForElementToAppear(app.staticTexts.containing(validateSuccessPredicate).element(boundBy: 0))
+        let checkoutCompletePredicate = NSPredicate(format: "label LIKE 'Card checkout complete:*'")
+        waitForElementToAppear(app.staticTexts.containing(checkoutCompletePredicate).element(boundBy: 0))
 
         // wait for validate & Capture button enabled
         sleep(10)
@@ -83,8 +83,8 @@ class CardCheckout_UITests: XCTestCase {
 
         // tap Submit
         app.buttons["Submit"].tap()
-        let validateSuccessPredicate = NSPredicate(format: "label LIKE 'Validate card success:*'")
-        waitForElementToAppear(app.staticTexts.containing(validateSuccessPredicate).element(boundBy: 0))
+        let checkoutCompletePredicate = NSPredicate(format: "label LIKE 'Card checkout complete:*'")
+        waitForElementToAppear(app.staticTexts.containing(checkoutCompletePredicate).element(boundBy: 0))
 
         // wait for validate & Authorize button enabled
         sleep(10)
@@ -142,8 +142,8 @@ class CardCheckout_UITests: XCTestCase {
         // tap 3DS Submit button
         getSubmitButton().tap()
 
-        let validateSuccessPredicate = NSPredicate(format: "label LIKE 'Validate card success:*'")
-        waitForElementToAppear(app.staticTexts.containing(validateSuccessPredicate).element(boundBy: 0))
+        let checkoutCompletePredicate = NSPredicate(format: "label LIKE 'Card checkout complete:*'")
+        waitForElementToAppear(app.staticTexts.containing(checkoutCompletePredicate).element(boundBy: 0))
     }
 
     // MARK: - Helpers

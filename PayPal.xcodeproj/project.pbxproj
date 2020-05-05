@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D23836B30BE2B7B94BABAC8 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABDD497A4426C4EA1D96FEB /* libPods-Demo.a */; };
 		42138C7223678B4B00376E80 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 42138C7123678B4B00376E80 /* Settings.bundle */; };
 		423AB53A23EDC9D700B3E06A /* PayPalUATTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AB53923EDC9D700B3E06A /* PayPalUATTestHelper.swift */; };
 		425B8315236CBDEC006F694D /* BTJSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B8314236CBDEC006F694D /* BTJSONHelper.swift */; };
 		425B831B236CBE8C006F694D /* paypal-validate-request-with-3ds.json in Resources */ = {isa = PBXBuildFile; fileRef = 425B831A236CBE8C006F694D /* paypal-validate-request-with-3ds.json */; };
 		425B831F236CCC99006F694D /* paypal-validation-response-without-contingency.json in Resources */ = {isa = PBXBuildFile; fileRef = 425B831E236CCC99006F694D /* paypal-validation-response-without-contingency.json */; };
 		425B8321236CDDBF006F694D /* paypal-validation-response-with-contingency.json in Resources */ = {isa = PBXBuildFile; fileRef = 425B8320236CDDBF006F694D /* paypal-validation-response-with-contingency.json */; };
-		425B8323236CE98D006F694D /* PPCCardContingencyRequest_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B8322236CE98D006F694D /* PPCCardContingencyRequest_Tests.swift */; };
+		425B8323236CE98D006F694D /* PYPLCardContingencyRequest_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B8322236CE98D006F694D /* PYPLCardContingencyRequest_Tests.swift */; };
 		425B8325236CEBF7006F694D /* MockPaymentFlowDriverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B8324236CEBF7006F694D /* MockPaymentFlowDriverDelegate.swift */; };
 		4276306D2360E91B00A8734E /* MockCardClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276306C2360E91B00A8734E /* MockCardClient.swift */; };
 		4276306F2360F05A00A8734E /* MockPaymentFlowDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276306E2360F05A00A8734E /* MockPaymentFlowDriver.swift */; };
@@ -21,57 +22,56 @@
 		4294F15F237B629C00A789E5 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4294F15E237B629C00A789E5 /* TestHelpers.swift */; };
 		42D95334240D64E700489F15 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D95333240D64E700489F15 /* DemoSettings.swift */; };
 		42FCAAB0235E32FA00B9BC3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAAAF235E32FA00B9BC3E /* AppDelegate.swift */; };
-		42FF386C235E42D000F0CF10 /* PPCValidatorClient_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 42FF386B235E42D000F0CF10 /* PPCValidatorClient_Internal.h */; };
+		42FF386C235E42D000F0CF10 /* PYPLClient_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 42FF386B235E42D000F0CF10 /* PYPLClient_Internal.h */; };
 		49A52AFB23AABF9000F7BC8D /* paypal-validate-request-without-3ds.json in Resources */ = {isa = PBXBuildFile; fileRef = 49A52AFA23AABF9000F7BC8D /* paypal-validate-request-without-3ds.json */; };
-		80015A2D23566AD6002825E1 /* PPCValidatorResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80015A2B23566AD6002825E1 /* PPCValidatorResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80015A2E23566AD6002825E1 /* PPCValidatorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80015A2C23566AD6002825E1 /* PPCValidatorResult.m */; };
-		801DB2F02412EC0B0074426F /* PPCValidationResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 8026243823578F75005EA84A /* PPCValidationResult.h */; };
+		80015A2D23566AD6002825E1 /* PYPLCheckoutResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80015A2B23566AD6002825E1 /* PYPLCheckoutResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80015A2E23566AD6002825E1 /* PYPLCheckoutResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80015A2C23566AD6002825E1 /* PYPLCheckoutResult.m */; };
+		801DB2F02412EC0B0074426F /* PYPLValidationResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 8026243823578F75005EA84A /* PYPLValidationResult.h */; };
 		802C28F12370CC4100A918C7 /* paypal-validation-response-card-expired.json in Resources */ = {isa = PBXBuildFile; fileRef = 802C28F02370CC4100A918C7 /* paypal-validation-response-card-expired.json */; };
 		802C28F32370D1FE00A918C7 /* paypal-validation-response-invalid-token.json in Resources */ = {isa = PBXBuildFile; fileRef = 802C28F22370D1FE00A918C7 /* paypal-validation-response-invalid-token.json */; };
-		803F7C2923E8BC8900F9D70A /* PPCPayPalCheckoutRequest_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F7C2823E8BC8900F9D70A /* PPCPayPalCheckoutRequest_Tests.swift */; };
+		803F7C2923E8BC8900F9D70A /* PYPLPayPalPaymentFlowRequest_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F7C2823E8BC8900F9D70A /* PYPLPayPalPaymentFlowRequest_Tests.swift */; };
 		803F7C2B23E8BF5D00F9D70A /* MockBTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F7C2A23E8BF5D00F9D70A /* MockBTAPIClient.swift */; };
 		80455CA12433D3EB00F01EBC /* IntegrationTests_MerchantAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80455CA02433D3EB00F01EBC /* IntegrationTests_MerchantAPI.swift */; };
-		804588DC23848A5700936C3A /* PPCValidatorClient_IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804588DB23848A5700936C3A /* PPCValidatorClient_IntegrationTests.swift */; };
+		804588DC23848A5700936C3A /* PYPLClient_IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804588DB23848A5700936C3A /* PYPLClient_IntegrationTests.swift */; };
 		805F797923A835C60017FAFC /* IntegrationTestsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F797823A835C60017FAFC /* IntegrationTestsConstants.swift */; };
-		8066A056235F506F007ACC28 /* PPCValidatorClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026243F2357B3DE005EA84A /* PPCValidatorClient_Tests.swift */; };
-		8066A057235F506F007ACC28 /* PPCCardContingencyResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026243D2357A613005EA84A /* PPCCardContingencyResult_Tests.swift */; };
-		8066A058235F506F007ACC28 /* PPCAPIClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802624392357A469005EA84A /* PPCAPIClient_Tests.swift */; };
-		8066A059235F506F007ACC28 /* PPCValidationResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026243B2357A4E2005EA84A /* PPCValidationResult_Tests.swift */; };
+		8066A056235F506F007ACC28 /* PYPLClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026243F2357B3DE005EA84A /* PYPLClient_Tests.swift */; };
+		8066A057235F506F007ACC28 /* PYPLCardContingencyResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026243D2357A613005EA84A /* PYPLCardContingencyResult_Tests.swift */; };
+		8066A058235F506F007ACC28 /* PYPLAPIClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802624392357A469005EA84A /* PYPLAPIClient_Tests.swift */; };
+		8066A059235F506F007ACC28 /* PYPLValidationResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026243B2357A4E2005EA84A /* PYPLValidationResult_Tests.swift */; };
 		8066A05B235F51EF007ACC28 /* MockApplePayClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D352F4235E49BF006A9DD1 /* MockApplePayClient.swift */; };
 		8066A05C235F51F2007ACC28 /* MockViewControllerPresentingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42986C05235E4B9F00D31176 /* MockViewControllerPresentingDelegate.swift */; };
 		8066A05E235F5E9C007ACC28 /* MockPayPalAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066A05D235F5E9C007ACC28 /* MockPayPalAPIClient.swift */; };
 		8077518D236A3D08001B61BE /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8077518C236A3D08001B61BE /* MockURLSession.swift */; };
-		808B1E3A24588ACA00D4CDA7 /* PPCApplePayValidatorResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 808B1E3824588ACA00D4CDA7 /* PPCApplePayValidatorResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		808B1E3B24588ACA00D4CDA7 /* PPCApplePayValidatorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B1E3924588ACA00D4CDA7 /* PPCApplePayValidatorResult.m */; };
+		808B1E3A24588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 808B1E3824588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		808B1E3B24588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B1E3924588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.m */; };
 		808B1E3D24589CF700D4CDA7 /* MockPKPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B1E3C24589CF700D4CDA7 /* MockPKPayment.swift */; };
 		809E0A8F23C7D7AD00D9A2C0 /* MockPPDataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E0A8E23C7D7AD00D9A2C0 /* MockPPDataCollector.swift */; };
 		80ADA74B234644AE00579E7A /* DemoMerchantAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA74A234644AE00579E7A /* DemoMerchantAPI.swift */; };
 		80ADA74F23464A8900579E7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80ADA74E23464A8900579E7A /* Main.storyboard */; };
 		80B36CB723453FF100AD35E8 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CB623453FF100AD35E8 /* DemoViewController.swift */; };
-		80B36CC82345473800AD35E8 /* PPCPayPalCheckoutRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CC62345473800AD35E8 /* PPCPayPalCheckoutRequest.h */; };
-		80B36CC92345473800AD35E8 /* PPCPayPalCheckoutRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CC72345473800AD35E8 /* PPCPayPalCheckoutRequest.m */; };
-		80B36CD023454C9E00AD35E8 /* PPCPayPalCheckoutResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CCE23454C9E00AD35E8 /* PPCPayPalCheckoutResult.h */; };
-		80B36CD123454C9E00AD35E8 /* PPCPayPalCheckoutResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CCF23454C9E00AD35E8 /* PPCPayPalCheckoutResult.m */; };
-		80B36CD423454D2D00AD35E8 /* PPCCardContingencyResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CD223454D2D00AD35E8 /* PPCCardContingencyResult.h */; };
-		80B36CD523454D2D00AD35E8 /* PPCCardContingencyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CD323454D2D00AD35E8 /* PPCCardContingencyResult.m */; };
-		80B36CD923454D9000AD35E8 /* PPCValidationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CD723454D9000AD35E8 /* PPCValidationResult.m */; };
-		80B36CDC23454E3700AD35E8 /* PPCCardContingencyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CDA23454E3700AD35E8 /* PPCCardContingencyRequest.h */; };
-		80B36CDD23454E3700AD35E8 /* PPCCardContingencyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CDB23454E3700AD35E8 /* PPCCardContingencyRequest.m */; };
-		80B36CE023454E8700AD35E8 /* PPCAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CDE23454E8700AD35E8 /* PPCAPIClient.h */; };
-		80B36CE123454E8700AD35E8 /* PPCAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CDF23454E8700AD35E8 /* PPCAPIClient.m */; };
-		80B36CE423454EC000AD35E8 /* PPCValidatorClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CE223454EC000AD35E8 /* PPCValidatorClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B36CE523454EC000AD35E8 /* PPCValidatorClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CE323454EC000AD35E8 /* PPCValidatorClient.m */; };
+		80B36CC82345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CC62345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.h */; };
+		80B36CC92345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CC72345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.m */; };
+		80B36CD023454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CCE23454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.h */; };
+		80B36CD123454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CCF23454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.m */; };
+		80B36CD423454D2D00AD35E8 /* PYPLCardContingencyResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CD223454D2D00AD35E8 /* PYPLCardContingencyResult.h */; };
+		80B36CD523454D2D00AD35E8 /* PYPLCardContingencyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CD323454D2D00AD35E8 /* PYPLCardContingencyResult.m */; };
+		80B36CD923454D9000AD35E8 /* PYPLValidationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CD723454D9000AD35E8 /* PYPLValidationResult.m */; };
+		80B36CDC23454E3700AD35E8 /* PYPLCardContingencyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CDA23454E3700AD35E8 /* PYPLCardContingencyRequest.h */; };
+		80B36CDD23454E3700AD35E8 /* PYPLCardContingencyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CDB23454E3700AD35E8 /* PYPLCardContingencyRequest.m */; };
+		80B36CE023454E8700AD35E8 /* PYPLAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CDE23454E8700AD35E8 /* PYPLAPIClient.h */; };
+		80B36CE123454E8700AD35E8 /* PYPLAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CDF23454E8700AD35E8 /* PYPLAPIClient.m */; };
+		80B36CE423454EC000AD35E8 /* PYPLClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B36CE223454EC000AD35E8 /* PYPLClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B36CE523454EC000AD35E8 /* PYPLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B36CE323454EC000AD35E8 /* PYPLClient.m */; };
 		80BAD283234531B50050F86C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BAD282234531B50050F86C /* Assets.xcassets */; };
 		80BAD286234531B50050F86C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80BAD284234531B50050F86C /* LaunchScreen.storyboard */; };
 		80BAD298234532A30050F86C /* PayPalCommercePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 80BAD296234532A30050F86C /* PayPalCommercePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80C74F1F2437D38B009B8B00 /* PPCPayPalCheckoutResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C74F1E2437D38B009B8B00 /* PPCPayPalCheckoutResult_Tests.swift */; };
-		80EA9B0D24607BE100DC0A16 /* PPCPayPalValidatorResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA9B0B24607BE100DC0A16 /* PPCPayPalValidatorResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80EA9B0E24607BE100DC0A16 /* PPCPayPalValidatorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA9B0C24607BE100DC0A16 /* PPCPayPalValidatorResult.m */; };
-		80EA9B1124607C0100DC0A16 /* PPCCardValidatorResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA9B0F24607C0100DC0A16 /* PPCCardValidatorResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80EA9B1224607C0100DC0A16 /* PPCCardValidatorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA9B1024607C0100DC0A16 /* PPCCardValidatorResult.m */; };
-		D283B8E10F58BB53E3E387CE /* libPods-Tests-IntegrationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 116055BFF792DDFCEDAA71B1 /* libPods-Tests-IntegrationTests.a */; };
-		E8A50DE15C108260E9A2C107 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E5FAB0DE77B23A1088C820 /* libPods-Demo.a */; };
-		F24706C24EAE391336C760A1 /* libPods-Tests-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD56B7E46D8116D132E0707 /* libPods-Tests-UnitTests.a */; };
+		80C74F1F2437D38B009B8B00 /* PYPLPayPalPaymentFlowResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C74F1E2437D38B009B8B00 /* PYPLPayPalPaymentFlowResult_Tests.swift */; };
+		80EA9B0D24607BE100DC0A16 /* PYPLPayPalCheckoutResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA9B0B24607BE100DC0A16 /* PYPLPayPalCheckoutResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80EA9B0E24607BE100DC0A16 /* PYPLPayPalCheckoutResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA9B0C24607BE100DC0A16 /* PYPLPayPalCheckoutResult.m */; };
+		80EA9B1124607C0100DC0A16 /* PYPLCardCheckoutResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA9B0F24607C0100DC0A16 /* PYPLCardCheckoutResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80EA9B1224607C0100DC0A16 /* PYPLCardCheckoutResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA9B1024607C0100DC0A16 /* PYPLCardCheckoutResult.m */; };
+		9E615AD27349382A095AD30C /* libPods-Tests-IntegrationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF49265C5BCF6E4343F132C /* libPods-Tests-IntegrationTests.a */; };
+		C76B2427AE1C9F8217AF9F73 /* libPods-Tests-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93590F2710D33418A3AE6300 /* libPods-Tests-UnitTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,15 +99,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		116055BFF792DDFCEDAA71B1 /* libPods-Tests-IntegrationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-IntegrationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AD56B7E46D8116D132E0707 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ABDD497A4426C4EA1D96FEB /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1363E5AB41384BCD587424C8 /* Pods-Tests-IntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-IntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-Tests-IntegrationTests/Pods-Tests-IntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
 		42138C7123678B4B00376E80 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		423AB53923EDC9D700B3E06A /* PayPalUATTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalUATTestHelper.swift; sourceTree = "<group>"; };
 		425B8314236CBDEC006F694D /* BTJSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTJSONHelper.swift; sourceTree = "<group>"; };
 		425B831A236CBE8C006F694D /* paypal-validate-request-with-3ds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "paypal-validate-request-with-3ds.json"; sourceTree = "<group>"; };
 		425B831E236CCC99006F694D /* paypal-validation-response-without-contingency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "paypal-validation-response-without-contingency.json"; sourceTree = "<group>"; };
 		425B8320236CDDBF006F694D /* paypal-validation-response-with-contingency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "paypal-validation-response-with-contingency.json"; sourceTree = "<group>"; };
-		425B8322236CE98D006F694D /* PPCCardContingencyRequest_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCCardContingencyRequest_Tests.swift; sourceTree = "<group>"; };
+		425B8322236CE98D006F694D /* PYPLCardContingencyRequest_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPLCardContingencyRequest_Tests.swift; sourceTree = "<group>"; };
 		425B8324236CEBF7006F694D /* MockPaymentFlowDriverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPaymentFlowDriverDelegate.swift; sourceTree = "<group>"; };
 		4276306B2360DF4F00A8734E /* Demo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Demo.entitlements; sourceTree = "<group>"; };
 		4276306C2360E91B00A8734E /* MockCardClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCardClient.swift; sourceTree = "<group>"; };
@@ -120,34 +120,34 @@
 		42D352F4235E49BF006A9DD1 /* MockApplePayClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApplePayClient.swift; sourceTree = "<group>"; };
 		42D95333240D64E700489F15 /* DemoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
 		42FCAAAF235E32FA00B9BC3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42FF386B235E42D000F0CF10 /* PPCValidatorClient_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCValidatorClient_Internal.h; sourceTree = "<group>"; };
+		42FF386B235E42D000F0CF10 /* PYPLClient_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLClient_Internal.h; sourceTree = "<group>"; };
 		49A52AFA23AABF9000F7BC8D /* paypal-validate-request-without-3ds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "paypal-validate-request-without-3ds.json"; sourceTree = "<group>"; };
-		5973B2EAA8F7606C5BB92097 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		69B521BEEEEFB77C0CFEE62F /* Pods-Tests-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		80015A2B23566AD6002825E1 /* PPCValidatorResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCValidatorResult.h; sourceTree = "<group>"; };
-		80015A2C23566AD6002825E1 /* PPCValidatorResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCValidatorResult.m; sourceTree = "<group>"; };
-		8026243823578F75005EA84A /* PPCValidationResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCValidationResult.h; sourceTree = "<group>"; };
-		802624392357A469005EA84A /* PPCAPIClient_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCAPIClient_Tests.swift; sourceTree = "<group>"; };
-		8026243B2357A4E2005EA84A /* PPCValidationResult_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCValidationResult_Tests.swift; sourceTree = "<group>"; };
-		8026243D2357A613005EA84A /* PPCCardContingencyResult_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCCardContingencyResult_Tests.swift; sourceTree = "<group>"; };
-		8026243F2357B3DE005EA84A /* PPCValidatorClient_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCValidatorClient_Tests.swift; sourceTree = "<group>"; };
+		4B7DE11E0ACAD3E8AADCFC65 /* Pods-Tests-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.release.xcconfig"; path = "Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		4EF49265C5BCF6E4343F132C /* libPods-Tests-IntegrationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-IntegrationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80015A2B23566AD6002825E1 /* PYPLCheckoutResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLCheckoutResult.h; sourceTree = "<group>"; };
+		80015A2C23566AD6002825E1 /* PYPLCheckoutResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLCheckoutResult.m; sourceTree = "<group>"; };
+		8026243823578F75005EA84A /* PYPLValidationResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLValidationResult.h; sourceTree = "<group>"; };
+		802624392357A469005EA84A /* PYPLAPIClient_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPLAPIClient_Tests.swift; sourceTree = "<group>"; };
+		8026243B2357A4E2005EA84A /* PYPLValidationResult_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPLValidationResult_Tests.swift; sourceTree = "<group>"; };
+		8026243D2357A613005EA84A /* PYPLCardContingencyResult_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPLCardContingencyResult_Tests.swift; sourceTree = "<group>"; };
+		8026243F2357B3DE005EA84A /* PYPLClient_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPLClient_Tests.swift; sourceTree = "<group>"; };
 		802C28F02370CC4100A918C7 /* paypal-validation-response-card-expired.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "paypal-validation-response-card-expired.json"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		802C28F22370D1FE00A918C7 /* paypal-validation-response-invalid-token.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "paypal-validation-response-invalid-token.json"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
-		803F7C2823E8BC8900F9D70A /* PPCPayPalCheckoutRequest_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCPayPalCheckoutRequest_Tests.swift; sourceTree = "<group>"; };
+		803F7C2823E8BC8900F9D70A /* PYPLPayPalPaymentFlowRequest_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPLPayPalPaymentFlowRequest_Tests.swift; sourceTree = "<group>"; };
 		803F7C2A23E8BF5D00F9D70A /* MockBTAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBTAPIClient.swift; sourceTree = "<group>"; };
 		80455CA02433D3EB00F01EBC /* IntegrationTests_MerchantAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests_MerchantAPI.swift; sourceTree = "<group>"; };
 		804588D0238489F800936C3A /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		804588D4238489F800936C3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		804588DA23848A5700936C3A /* IntegrationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IntegrationTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		804588DB23848A5700936C3A /* PPCValidatorClient_IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCValidatorClient_IntegrationTests.swift; sourceTree = "<group>"; };
+		804588DB23848A5700936C3A /* PYPLClient_IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPLClient_IntegrationTests.swift; sourceTree = "<group>"; };
 		805F797823A835C60017FAFC /* IntegrationTestsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTestsConstants.swift; sourceTree = "<group>"; };
 		8066A04C235F5026007ACC28 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8066A050235F5026007ACC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8066A05A235F50D7007ACC28 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8066A05D235F5E9C007ACC28 /* MockPayPalAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPayPalAPIClient.swift; sourceTree = "<group>"; };
 		8077518C236A3D08001B61BE /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
-		808B1E3824588ACA00D4CDA7 /* PPCApplePayValidatorResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCApplePayValidatorResult.h; sourceTree = "<group>"; };
-		808B1E3924588ACA00D4CDA7 /* PPCApplePayValidatorResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCApplePayValidatorResult.m; sourceTree = "<group>"; };
+		808B1E3824588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLApplePayCheckoutResult.h; sourceTree = "<group>"; };
+		808B1E3924588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLApplePayCheckoutResult.m; sourceTree = "<group>"; };
 		808B1E3C24589CF700D4CDA7 /* MockPKPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPKPayment.swift; sourceTree = "<group>"; };
 		809E0A8E23C7D7AD00D9A2C0 /* MockPPDataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPPDataCollector.swift; sourceTree = "<group>"; };
 		80ADA74A234644AE00579E7A /* DemoMerchantAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMerchantAPI.swift; sourceTree = "<group>"; };
@@ -155,19 +155,19 @@
 		80AFF97123D7A08D006A6183 /* BTAPIClient+Analytics_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTAPIClient+Analytics_Internal.h"; sourceTree = "<group>"; };
 		80B36CB523453FF100AD35E8 /* Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		80B36CB623453FF100AD35E8 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
-		80B36CC62345473800AD35E8 /* PPCPayPalCheckoutRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCPayPalCheckoutRequest.h; sourceTree = "<group>"; };
-		80B36CC72345473800AD35E8 /* PPCPayPalCheckoutRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCPayPalCheckoutRequest.m; sourceTree = "<group>"; };
-		80B36CCE23454C9E00AD35E8 /* PPCPayPalCheckoutResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCPayPalCheckoutResult.h; sourceTree = "<group>"; };
-		80B36CCF23454C9E00AD35E8 /* PPCPayPalCheckoutResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCPayPalCheckoutResult.m; sourceTree = "<group>"; };
-		80B36CD223454D2D00AD35E8 /* PPCCardContingencyResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCCardContingencyResult.h; sourceTree = "<group>"; };
-		80B36CD323454D2D00AD35E8 /* PPCCardContingencyResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCCardContingencyResult.m; sourceTree = "<group>"; };
-		80B36CD723454D9000AD35E8 /* PPCValidationResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCValidationResult.m; sourceTree = "<group>"; };
-		80B36CDA23454E3700AD35E8 /* PPCCardContingencyRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCCardContingencyRequest.h; sourceTree = "<group>"; };
-		80B36CDB23454E3700AD35E8 /* PPCCardContingencyRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCCardContingencyRequest.m; sourceTree = "<group>"; };
-		80B36CDE23454E8700AD35E8 /* PPCAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCAPIClient.h; sourceTree = "<group>"; };
-		80B36CDF23454E8700AD35E8 /* PPCAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCAPIClient.m; sourceTree = "<group>"; };
-		80B36CE223454EC000AD35E8 /* PPCValidatorClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCValidatorClient.h; sourceTree = "<group>"; };
-		80B36CE323454EC000AD35E8 /* PPCValidatorClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCValidatorClient.m; sourceTree = "<group>"; };
+		80B36CC62345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLPayPalPaymentFlowRequest.h; sourceTree = "<group>"; };
+		80B36CC72345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLPayPalPaymentFlowRequest.m; sourceTree = "<group>"; };
+		80B36CCE23454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLPayPalPaymentFlowResult.h; sourceTree = "<group>"; };
+		80B36CCF23454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLPayPalPaymentFlowResult.m; sourceTree = "<group>"; };
+		80B36CD223454D2D00AD35E8 /* PYPLCardContingencyResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLCardContingencyResult.h; sourceTree = "<group>"; };
+		80B36CD323454D2D00AD35E8 /* PYPLCardContingencyResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLCardContingencyResult.m; sourceTree = "<group>"; };
+		80B36CD723454D9000AD35E8 /* PYPLValidationResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLValidationResult.m; sourceTree = "<group>"; };
+		80B36CDA23454E3700AD35E8 /* PYPLCardContingencyRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLCardContingencyRequest.h; sourceTree = "<group>"; };
+		80B36CDB23454E3700AD35E8 /* PYPLCardContingencyRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLCardContingencyRequest.m; sourceTree = "<group>"; };
+		80B36CDE23454E8700AD35E8 /* PYPLAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLAPIClient.h; sourceTree = "<group>"; };
+		80B36CDF23454E8700AD35E8 /* PYPLAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLAPIClient.m; sourceTree = "<group>"; };
+		80B36CE223454EC000AD35E8 /* PYPLClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLClient.h; sourceTree = "<group>"; };
+		80B36CE323454EC000AD35E8 /* PYPLClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLClient.m; sourceTree = "<group>"; };
 		80BAD273234531B30050F86C /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BAD282234531B50050F86C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80BAD285234531B50050F86C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -175,17 +175,17 @@
 		80BAD294234532A30050F86C /* PayPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PayPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BAD296234532A30050F86C /* PayPalCommercePlatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalCommercePlatform.h; sourceTree = "<group>"; };
 		80BAD297234532A30050F86C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80C74F1E2437D38B009B8B00 /* PPCPayPalCheckoutResult_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCPayPalCheckoutResult_Tests.swift; sourceTree = "<group>"; };
-		80EA9B0B24607BE100DC0A16 /* PPCPayPalValidatorResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCPayPalValidatorResult.h; sourceTree = "<group>"; };
-		80EA9B0C24607BE100DC0A16 /* PPCPayPalValidatorResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCPayPalValidatorResult.m; sourceTree = "<group>"; };
-		80EA9B0F24607C0100DC0A16 /* PPCCardValidatorResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCCardValidatorResult.h; sourceTree = "<group>"; };
-		80EA9B1024607C0100DC0A16 /* PPCCardValidatorResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPCCardValidatorResult.m; sourceTree = "<group>"; };
+		80C74F1E2437D38B009B8B00 /* PYPLPayPalPaymentFlowResult_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPLPayPalPaymentFlowResult_Tests.swift; sourceTree = "<group>"; };
+		80EA9B0B24607BE100DC0A16 /* PYPLPayPalCheckoutResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLPayPalCheckoutResult.h; sourceTree = "<group>"; };
+		80EA9B0C24607BE100DC0A16 /* PYPLPayPalCheckoutResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLPayPalCheckoutResult.m; sourceTree = "<group>"; };
+		80EA9B0F24607C0100DC0A16 /* PYPLCardCheckoutResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYPLCardCheckoutResult.h; sourceTree = "<group>"; };
+		80EA9B1024607C0100DC0A16 /* PYPLCardCheckoutResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYPLCardCheckoutResult.m; sourceTree = "<group>"; };
+		93590F2710D33418A3AE6300 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		936F1E7F6E2A01F97598EFC9 /* Pods-Tests-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		93D1244BD06550D58C8C4E17 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		A0F7C08724339FB20039906E /* Braintree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Braintree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B9ADC03BF79B8129BA1E1892 /* Pods-Tests-IntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-IntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-Tests-IntegrationTests/Pods-Tests-IntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
-		BC9BD6EF294C85BD8FCFC0C4 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		C9653E2E76F8AA459AD26C16 /* Pods-Tests-IntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-IntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-Tests-IntegrationTests/Pods-Tests-IntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CF48EFAA981E659A54CBCA98 /* Pods-Tests-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.release.xcconfig"; path = "Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
-		F0E5FAB0DE77B23A1088C820 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA0AD77EA7839FE188F1C273 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		E5CC556BF373D22AA504101D /* Pods-Tests-IntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-IntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-Tests-IntegrationTests/Pods-Tests-IntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D283B8E10F58BB53E3E387CE /* libPods-Tests-IntegrationTests.a in Frameworks */,
+				9E615AD27349382A095AD30C /* libPods-Tests-IntegrationTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F24706C24EAE391336C760A1 /* libPods-Tests-UnitTests.a in Frameworks */,
+				C76B2427AE1C9F8217AF9F73 /* libPods-Tests-UnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A50DE15C108260E9A2C107 /* libPods-Demo.a in Frameworks */,
+				0D23836B30BE2B7B94BABAC8 /* libPods-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,43 +275,43 @@
 		6D8747EA22F435AE06F0EF97 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5973B2EAA8F7606C5BB92097 /* Pods-Demo.debug.xcconfig */,
-				BC9BD6EF294C85BD8FCFC0C4 /* Pods-Demo.release.xcconfig */,
-				C9653E2E76F8AA459AD26C16 /* Pods-Tests-IntegrationTests.debug.xcconfig */,
-				B9ADC03BF79B8129BA1E1892 /* Pods-Tests-IntegrationTests.release.xcconfig */,
-				69B521BEEEEFB77C0CFEE62F /* Pods-Tests-UnitTests.debug.xcconfig */,
-				CF48EFAA981E659A54CBCA98 /* Pods-Tests-UnitTests.release.xcconfig */,
+				CA0AD77EA7839FE188F1C273 /* Pods-Demo.debug.xcconfig */,
+				93D1244BD06550D58C8C4E17 /* Pods-Demo.release.xcconfig */,
+				E5CC556BF373D22AA504101D /* Pods-Tests-IntegrationTests.debug.xcconfig */,
+				1363E5AB41384BCD587424C8 /* Pods-Tests-IntegrationTests.release.xcconfig */,
+				936F1E7F6E2A01F97598EFC9 /* Pods-Tests-UnitTests.debug.xcconfig */,
+				4B7DE11E0ACAD3E8AADCFC65 /* Pods-Tests-UnitTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		80015A3123567399002825E1 /* CardCheckout */ = {
+		80015A3123567399002825E1 /* CardPaymentFlow */ = {
 			isa = PBXGroup;
 			children = (
-				80B36CDA23454E3700AD35E8 /* PPCCardContingencyRequest.h */,
-				80B36CDB23454E3700AD35E8 /* PPCCardContingencyRequest.m */,
-				80B36CD223454D2D00AD35E8 /* PPCCardContingencyResult.h */,
-				80B36CD323454D2D00AD35E8 /* PPCCardContingencyResult.m */,
+				80B36CDA23454E3700AD35E8 /* PYPLCardContingencyRequest.h */,
+				80B36CDB23454E3700AD35E8 /* PYPLCardContingencyRequest.m */,
+				80B36CD223454D2D00AD35E8 /* PYPLCardContingencyResult.h */,
+				80B36CD323454D2D00AD35E8 /* PYPLCardContingencyResult.m */,
 			);
-			path = CardCheckout;
+			path = CardPaymentFlow;
 			sourceTree = "<group>";
 		};
-		80015A32235673A4002825E1 /* PayPalCheckout */ = {
+		80015A32235673A4002825E1 /* PayPalPaymentFlow */ = {
 			isa = PBXGroup;
 			children = (
-				80B36CC62345473800AD35E8 /* PPCPayPalCheckoutRequest.h */,
-				80B36CC72345473800AD35E8 /* PPCPayPalCheckoutRequest.m */,
-				80B36CCE23454C9E00AD35E8 /* PPCPayPalCheckoutResult.h */,
-				80B36CCF23454C9E00AD35E8 /* PPCPayPalCheckoutResult.m */,
+				80B36CC62345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.h */,
+				80B36CC72345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.m */,
+				80B36CCE23454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.h */,
+				80B36CCF23454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.m */,
 			);
-			path = PayPalCheckout;
+			path = PayPalPaymentFlow;
 			sourceTree = "<group>";
 		};
 		804588D1238489F800936C3A /* IntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
 				805F797523A8332E0017FAFC /* Helpers */,
-				804588DB23848A5700936C3A /* PPCValidatorClient_IntegrationTests.swift */,
+				804588DB23848A5700936C3A /* PYPLClient_IntegrationTests.swift */,
 				804588D4238489F800936C3A /* Info.plist */,
 				804588DA23848A5700936C3A /* IntegrationTests-Bridging-Header.h */,
 			);
@@ -332,13 +332,13 @@
 			children = (
 				42D352F3235E49AC006A9DD1 /* Helpers */,
 				8066A050235F5026007ACC28 /* Info.plist */,
-				802624392357A469005EA84A /* PPCAPIClient_Tests.swift */,
-				425B8322236CE98D006F694D /* PPCCardContingencyRequest_Tests.swift */,
-				8026243D2357A613005EA84A /* PPCCardContingencyResult_Tests.swift */,
-				803F7C2823E8BC8900F9D70A /* PPCPayPalCheckoutRequest_Tests.swift */,
-				80C74F1E2437D38B009B8B00 /* PPCPayPalCheckoutResult_Tests.swift */,
-				8026243B2357A4E2005EA84A /* PPCValidationResult_Tests.swift */,
-				8026243F2357B3DE005EA84A /* PPCValidatorClient_Tests.swift */,
+				802624392357A469005EA84A /* PYPLAPIClient_Tests.swift */,
+				425B8322236CE98D006F694D /* PYPLCardContingencyRequest_Tests.swift */,
+				8026243D2357A613005EA84A /* PYPLCardContingencyResult_Tests.swift */,
+				803F7C2823E8BC8900F9D70A /* PYPLPayPalPaymentFlowRequest_Tests.swift */,
+				80C74F1E2437D38B009B8B00 /* PYPLPayPalPaymentFlowResult_Tests.swift */,
+				8026243B2357A4E2005EA84A /* PYPLValidationResult_Tests.swift */,
+				8026243F2357B3DE005EA84A /* PYPLClient_Tests.swift */,
 				425B8319236CBE8C006F694D /* SampleJSON */,
 				8066A05A235F50D7007ACC28 /* UnitTests-Bridging-Header.h */,
 			);
@@ -349,11 +349,11 @@
 			isa = PBXGroup;
 			children = (
 				80BAD296234532A30050F86C /* PayPalCommercePlatform.h */,
-				808B1E3824588ACA00D4CDA7 /* PPCApplePayValidatorResult.h */,
-				80EA9B0F24607C0100DC0A16 /* PPCCardValidatorResult.h */,
-				80EA9B0B24607BE100DC0A16 /* PPCPayPalValidatorResult.h */,
-				80B36CE223454EC000AD35E8 /* PPCValidatorClient.h */,
-				80015A2B23566AD6002825E1 /* PPCValidatorResult.h */,
+				808B1E3824588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.h */,
+				80EA9B0F24607C0100DC0A16 /* PYPLCardCheckoutResult.h */,
+				80EA9B0B24607BE100DC0A16 /* PYPLPayPalCheckoutResult.h */,
+				80B36CE223454EC000AD35E8 /* PYPLClient.h */,
+				80015A2B23566AD6002825E1 /* PYPLCheckoutResult.h */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -406,19 +406,19 @@
 			isa = PBXGroup;
 			children = (
 				80AFF97123D7A08D006A6183 /* BTAPIClient+Analytics_Internal.h */,
-				80015A3123567399002825E1 /* CardCheckout */,
+				80015A3123567399002825E1 /* CardPaymentFlow */,
 				80BAD297234532A30050F86C /* Info.plist */,
-				80015A32235673A4002825E1 /* PayPalCheckout */,
-				80B36CDE23454E8700AD35E8 /* PPCAPIClient.h */,
-				80B36CDF23454E8700AD35E8 /* PPCAPIClient.m */,
-				808B1E3924588ACA00D4CDA7 /* PPCApplePayValidatorResult.m */,
-				80EA9B1024607C0100DC0A16 /* PPCCardValidatorResult.m */,
-				80EA9B0C24607BE100DC0A16 /* PPCPayPalValidatorResult.m */,
-				8026243823578F75005EA84A /* PPCValidationResult.h */,
-				80B36CD723454D9000AD35E8 /* PPCValidationResult.m */,
-				42FF386B235E42D000F0CF10 /* PPCValidatorClient_Internal.h */,
-				80B36CE323454EC000AD35E8 /* PPCValidatorClient.m */,
-				80015A2C23566AD6002825E1 /* PPCValidatorResult.m */,
+				80015A32235673A4002825E1 /* PayPalPaymentFlow */,
+				80B36CDE23454E8700AD35E8 /* PYPLAPIClient.h */,
+				80B36CDF23454E8700AD35E8 /* PYPLAPIClient.m */,
+				808B1E3924588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.m */,
+				80EA9B1024607C0100DC0A16 /* PYPLCardCheckoutResult.m */,
+				80EA9B0C24607BE100DC0A16 /* PYPLPayPalCheckoutResult.m */,
+				8026243823578F75005EA84A /* PYPLValidationResult.h */,
+				80B36CD723454D9000AD35E8 /* PYPLValidationResult.m */,
+				42FF386B235E42D000F0CF10 /* PYPLClient_Internal.h */,
+				80B36CE323454EC000AD35E8 /* PYPLClient.m */,
+				80015A2C23566AD6002825E1 /* PYPLCheckoutResult.m */,
 				80B36CB423453DB800AD35E8 /* Public */,
 			);
 			path = PayPal;
@@ -428,9 +428,9 @@
 			isa = PBXGroup;
 			children = (
 				A0F7C08724339FB20039906E /* Braintree.framework */,
-				F0E5FAB0DE77B23A1088C820 /* libPods-Demo.a */,
-				116055BFF792DDFCEDAA71B1 /* libPods-Tests-IntegrationTests.a */,
-				3AD56B7E46D8116D132E0707 /* libPods-Tests-UnitTests.a */,
+				0ABDD497A4426C4EA1D96FEB /* libPods-Demo.a */,
+				4EF49265C5BCF6E4343F132C /* libPods-Tests-IntegrationTests.a */,
+				93590F2710D33418A3AE6300 /* libPods-Tests-UnitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -442,19 +442,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B36CD023454C9E00AD35E8 /* PPCPayPalCheckoutResult.h in Headers */,
+				80B36CD023454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.h in Headers */,
 				80BAD298234532A30050F86C /* PayPalCommercePlatform.h in Headers */,
-				80015A2D23566AD6002825E1 /* PPCValidatorResult.h in Headers */,
-				808B1E3A24588ACA00D4CDA7 /* PPCApplePayValidatorResult.h in Headers */,
-				801DB2F02412EC0B0074426F /* PPCValidationResult.h in Headers */,
-				80B36CE423454EC000AD35E8 /* PPCValidatorClient.h in Headers */,
-				80B36CD423454D2D00AD35E8 /* PPCCardContingencyResult.h in Headers */,
-				80B36CC82345473800AD35E8 /* PPCPayPalCheckoutRequest.h in Headers */,
-				80B36CDC23454E3700AD35E8 /* PPCCardContingencyRequest.h in Headers */,
-				80B36CE023454E8700AD35E8 /* PPCAPIClient.h in Headers */,
-				42FF386C235E42D000F0CF10 /* PPCValidatorClient_Internal.h in Headers */,
-				80EA9B0D24607BE100DC0A16 /* PPCPayPalValidatorResult.h in Headers */,
-				80EA9B1124607C0100DC0A16 /* PPCCardValidatorResult.h in Headers */,
+				80015A2D23566AD6002825E1 /* PYPLCheckoutResult.h in Headers */,
+				808B1E3A24588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.h in Headers */,
+				801DB2F02412EC0B0074426F /* PYPLValidationResult.h in Headers */,
+				80B36CE423454EC000AD35E8 /* PYPLClient.h in Headers */,
+				80B36CD423454D2D00AD35E8 /* PYPLCardContingencyResult.h in Headers */,
+				80B36CC82345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.h in Headers */,
+				80B36CDC23454E3700AD35E8 /* PYPLCardContingencyRequest.h in Headers */,
+				80B36CE023454E8700AD35E8 /* PYPLAPIClient.h in Headers */,
+				42FF386C235E42D000F0CF10 /* PYPLClient_Internal.h in Headers */,
+				80EA9B0D24607BE100DC0A16 /* PYPLPayPalCheckoutResult.h in Headers */,
+				80EA9B1124607C0100DC0A16 /* PYPLCardCheckoutResult.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,12 +483,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 804588D9238489F800936C3A /* Build configuration list for PBXNativeTarget "IntegrationTests" */;
 			buildPhases = (
-				CCFF2DDB006A349EEF21D9E2 /* [CP] Check Pods Manifest.lock */,
+				20EA48A7AA2C0442B54A7243 /* [CP] Check Pods Manifest.lock */,
 				804588CC238489F800936C3A /* Sources */,
 				804588CD238489F800936C3A /* Frameworks */,
 				804588CE238489F800936C3A /* Resources */,
-				86FBFDD203C94C4F5F57453C /* [CP] Embed Pods Frameworks */,
-				BD878949336526ECBC6B7F55 /* [CP] Copy Pods Resources */,
+				0ACA4F784D27F291C7B5C415 /* [CP] Embed Pods Frameworks */,
+				1E008A6598710036C449A274 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -504,12 +504,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8066A053235F5026007ACC28 /* Build configuration list for PBXNativeTarget "UnitTests" */;
 			buildPhases = (
-				65DC551DCF4591E2A2CED0A5 /* [CP] Check Pods Manifest.lock */,
+				2DD732D2747BA42316F3D3E1 /* [CP] Check Pods Manifest.lock */,
 				8066A048235F5026007ACC28 /* Sources */,
 				8066A049235F5026007ACC28 /* Frameworks */,
 				8066A04A235F5026007ACC28 /* Resources */,
-				F5D8B9F8BC92637356CF5689 /* [CP] Embed Pods Frameworks */,
-				AAE5E156253C01D6A40DDB86 /* [CP] Copy Pods Resources */,
+				BB1112B2A95A0C5DBE3A64AE /* [CP] Embed Pods Frameworks */,
+				B4C8D933072853C45B038F6D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -525,12 +525,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80BAD28C234531B50050F86C /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
-				C97771256F3EDB637970A41D /* [CP] Check Pods Manifest.lock */,
+				580522416E36D234813EEE52 /* [CP] Check Pods Manifest.lock */,
 				80BAD26F234531B30050F86C /* Sources */,
 				80BAD270234531B30050F86C /* Frameworks */,
 				80BAD271234531B30050F86C /* Resources */,
-				99FCE0B8D50A209EA403D4C4 /* [CP] Embed Pods Frameworks */,
-				3A18C75129466EDB07DB4139 /* [CP] Copy Pods Resources */,
+				11E68B71813F3C954FAAE4F2 /* [CP] Embed Pods Frameworks */,
+				9BEADE2CCCCEF0BF18A1FF33 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -663,46 +663,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3A18C75129466EDB07DB4139 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		65DC551DCF4591E2A2CED0A5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tests-UnitTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		86FBFDD203C94C4F5F57453C /* [CP] Embed Pods Frameworks */ = {
+		0ACA4F784D27F291C7B5C415 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -719,7 +680,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tests-IntegrationTests/Pods-Tests-IntegrationTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		99FCE0B8D50A209EA403D4C4 /* [CP] Embed Pods Frameworks */ = {
+		11E68B71813F3C954FAAE4F2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -736,24 +697,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AAE5E156253C01D6A40DDB86 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BD878949336526ECBC6B7F55 /* [CP] Copy Pods Resources */ = {
+		1E008A6598710036C449A274 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -770,29 +714,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tests-IntegrationTests/Pods-Tests-IntegrationTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C97771256F3EDB637970A41D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Demo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CCFF2DDB006A349EEF21D9E2 /* [CP] Check Pods Manifest.lock */ = {
+		20EA48A7AA2C0442B54A7243 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -814,7 +736,85 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F5D8B9F8BC92637356CF5689 /* [CP] Embed Pods Frameworks */ = {
+		2DD732D2747BA42316F3D3E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tests-UnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		580522416E36D234813EEE52 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BEADE2CCCCEF0BF18A1FF33 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4C8D933072853C45B038F6D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB1112B2A95A0C5DBE3A64AE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -849,7 +849,7 @@
 			files = (
 				80455CA12433D3EB00F01EBC /* IntegrationTests_MerchantAPI.swift in Sources */,
 				805F797923A835C60017FAFC /* IntegrationTestsConstants.swift in Sources */,
-				804588DC23848A5700936C3A /* PPCValidatorClient_IntegrationTests.swift in Sources */,
+				804588DC23848A5700936C3A /* PYPLClient_IntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,24 +857,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8066A058235F506F007ACC28 /* PPCAPIClient_Tests.swift in Sources */,
-				8066A056235F506F007ACC28 /* PPCValidatorClient_Tests.swift in Sources */,
-				8066A057235F506F007ACC28 /* PPCCardContingencyResult_Tests.swift in Sources */,
+				8066A058235F506F007ACC28 /* PYPLAPIClient_Tests.swift in Sources */,
+				8066A056235F506F007ACC28 /* PYPLClient_Tests.swift in Sources */,
+				8066A057235F506F007ACC28 /* PYPLCardContingencyResult_Tests.swift in Sources */,
 				4276306F2360F05A00A8734E /* MockPaymentFlowDriver.swift in Sources */,
 				8066A05C235F51F2007ACC28 /* MockViewControllerPresentingDelegate.swift in Sources */,
 				8066A05B235F51EF007ACC28 /* MockApplePayClient.swift in Sources */,
-				803F7C2923E8BC8900F9D70A /* PPCPayPalCheckoutRequest_Tests.swift in Sources */,
+				803F7C2923E8BC8900F9D70A /* PYPLPayPalPaymentFlowRequest_Tests.swift in Sources */,
 				4276306D2360E91B00A8734E /* MockCardClient.swift in Sources */,
 				423AB53A23EDC9D700B3E06A /* PayPalUATTestHelper.swift in Sources */,
 				808B1E3D24589CF700D4CDA7 /* MockPKPayment.swift in Sources */,
 				425B8325236CEBF7006F694D /* MockPaymentFlowDriverDelegate.swift in Sources */,
 				803F7C2B23E8BF5D00F9D70A /* MockBTAPIClient.swift in Sources */,
 				425B8315236CBDEC006F694D /* BTJSONHelper.swift in Sources */,
-				425B8323236CE98D006F694D /* PPCCardContingencyRequest_Tests.swift in Sources */,
+				425B8323236CE98D006F694D /* PYPLCardContingencyRequest_Tests.swift in Sources */,
 				8066A05E235F5E9C007ACC28 /* MockPayPalAPIClient.swift in Sources */,
 				8077518D236A3D08001B61BE /* MockURLSession.swift in Sources */,
-				80C74F1F2437D38B009B8B00 /* PPCPayPalCheckoutResult_Tests.swift in Sources */,
-				8066A059235F506F007ACC28 /* PPCValidationResult_Tests.swift in Sources */,
+				80C74F1F2437D38B009B8B00 /* PYPLPayPalPaymentFlowResult_Tests.swift in Sources */,
+				8066A059235F506F007ACC28 /* PYPLValidationResult_Tests.swift in Sources */,
 				809E0A8F23C7D7AD00D9A2C0 /* MockPPDataCollector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -894,17 +894,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				808B1E3B24588ACA00D4CDA7 /* PPCApplePayValidatorResult.m in Sources */,
-				80B36CDD23454E3700AD35E8 /* PPCCardContingencyRequest.m in Sources */,
-				80B36CD123454C9E00AD35E8 /* PPCPayPalCheckoutResult.m in Sources */,
-				80B36CD523454D2D00AD35E8 /* PPCCardContingencyResult.m in Sources */,
-				80EA9B0E24607BE100DC0A16 /* PPCPayPalValidatorResult.m in Sources */,
-				80B36CC92345473800AD35E8 /* PPCPayPalCheckoutRequest.m in Sources */,
-				80B36CD923454D9000AD35E8 /* PPCValidationResult.m in Sources */,
-				80EA9B1224607C0100DC0A16 /* PPCCardValidatorResult.m in Sources */,
-				80B36CE123454E8700AD35E8 /* PPCAPIClient.m in Sources */,
-				80015A2E23566AD6002825E1 /* PPCValidatorResult.m in Sources */,
-				80B36CE523454EC000AD35E8 /* PPCValidatorClient.m in Sources */,
+				808B1E3B24588ACA00D4CDA7 /* PYPLApplePayCheckoutResult.m in Sources */,
+				80B36CDD23454E3700AD35E8 /* PYPLCardContingencyRequest.m in Sources */,
+				80B36CD123454C9E00AD35E8 /* PYPLPayPalPaymentFlowResult.m in Sources */,
+				80B36CD523454D2D00AD35E8 /* PYPLCardContingencyResult.m in Sources */,
+				80EA9B0E24607BE100DC0A16 /* PYPLPayPalCheckoutResult.m in Sources */,
+				80B36CC92345473800AD35E8 /* PYPLPayPalPaymentFlowRequest.m in Sources */,
+				80B36CD923454D9000AD35E8 /* PYPLValidationResult.m in Sources */,
+				80EA9B1224607C0100DC0A16 /* PYPLCardCheckoutResult.m in Sources */,
+				80B36CE123454E8700AD35E8 /* PYPLAPIClient.m in Sources */,
+				80015A2E23566AD6002825E1 /* PYPLCheckoutResult.m in Sources */,
+				80B36CE523454EC000AD35E8 /* PYPLClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,7 +984,7 @@
 		};
 		804588D7238489F800936C3A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9653E2E76F8AA459AD26C16 /* Pods-Tests-IntegrationTests.debug.xcconfig */;
+			baseConfigurationReference = E5CC556BF373D22AA504101D /* Pods-Tests-IntegrationTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1010,7 +1010,7 @@
 		};
 		804588D8238489F800936C3A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9ADC03BF79B8129BA1E1892 /* Pods-Tests-IntegrationTests.release.xcconfig */;
+			baseConfigurationReference = 1363E5AB41384BCD587424C8 /* Pods-Tests-IntegrationTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1035,7 +1035,7 @@
 		};
 		8066A054235F5026007ACC28 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69B521BEEEEFB77C0CFEE62F /* Pods-Tests-UnitTests.debug.xcconfig */;
+			baseConfigurationReference = 936F1E7F6E2A01F97598EFC9 /* Pods-Tests-UnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1060,7 +1060,7 @@
 		};
 		8066A055235F5026007ACC28 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF48EFAA981E659A54CBCA98 /* Pods-Tests-UnitTests.release.xcconfig */;
+			baseConfigurationReference = 4B7DE11E0ACAD3E8AADCFC65 /* Pods-Tests-UnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1198,7 +1198,7 @@
 		};
 		80BAD28D234531B50050F86C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5973B2EAA8F7606C5BB92097 /* Pods-Demo.debug.xcconfig */;
+			baseConfigurationReference = CA0AD77EA7839FE188F1C273 /* Pods-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -1222,7 +1222,7 @@
 		};
 		80BAD28E234531B50050F86C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC9BD6EF294C85BD8FCFC0C4 /* Pods-Demo.release.xcconfig */;
+			baseConfigurationReference = 93D1244BD06550D58C8C4E17 /* Pods-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;

@@ -14,7 +14,7 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
     @IBOutlet weak var otherCheckoutStackView: UIStackView!
     
     private var orderID: String?
-    private var payPalValidatorClient: PPCValidatorClient?
+    private var payPalClient: PYPLClient?
 
     // MARK: - Lifecycle methods
 
@@ -41,15 +41,15 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
     @IBAction func cardCheckoutTapped(_ sender: UIButton) {
         guard let orderID = orderID, let card = createBTCard() else { return }
 
-        updateCheckoutLabel(withText: "Validating card...")
-        payPalValidatorClient?.checkoutWithCard(orderID: orderID, card: card) { (validatorResult, error) in
+        updateCheckoutLabel(withText: "Checking out with card...")
+        payPalClient?.checkoutWithCard(orderID: orderID, card: card) { (checkoutResult, error) in
             if ((error) != nil) {
                 self.updateCheckoutLabel(withText: "\(error?.localizedDescription ?? "Card checkout error")")
                 return
             }
 
-            guard let orderID = validatorResult?.orderID else { return }
-            self.updateCheckoutLabel(withText: "Validate card success: \(orderID)")
+            guard let orderID = checkoutResult?.orderID else { return }
+            self.updateCheckoutLabel(withText: "Card checkout complete: \(orderID)")
             self.processOrderButton.isEnabled = true
         }
     }
@@ -59,13 +59,13 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
 
         updateCheckoutLabel(withText: "Checking out with PayPal...")
 
-        payPalValidatorClient?.checkoutWithPayPal(orderID: orderID, completion: { (validatorResult, error) in
+        payPalClient?.checkoutWithPayPal(orderID: orderID, completion: { (checkoutResult, error) in
             if ((error) != nil) {
                 self.updateCheckoutLabel(withText: "\(error?.localizedDescription ?? "PayPal Checkout error")")
                 return
             }
 
-            guard let orderID = validatorResult?.orderID else { return }
+            guard let orderID = checkoutResult?.orderID else { return }
             self.updateCheckoutLabel(withText: "PayPal checkout complete: \(orderID)")
             self.processOrderButton.isEnabled = true
         })
@@ -83,13 +83,13 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
         ]
 
         self.updateCheckoutLabel(withText: "Checking out with Apple Pay ...")
-        payPalValidatorClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest, completion: { (applePayValidatorResult, error, applePayResultHandler) in
-            guard let result = applePayValidatorResult, let resultHandler = applePayResultHandler else {
+        payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest, completion: { (checkoutResult, error, applePayResultHandler) in
+            guard let result = checkoutResult, let resultHandler = applePayResultHandler else {
                 self.updateCheckoutLabel(withText: "ApplePay Error: \(error?.localizedDescription ?? "error")")
                 return
             }
 
-            self.updateCheckoutLabel(withText: "ApplePay successful: \(result.orderID)")
+            self.updateCheckoutLabel(withText: "ApplePay checkout complete: \(result.orderID)")
             self.processOrderButton.isEnabled = true
 
             resultHandler(true)
@@ -193,8 +193,8 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
             }
 
             self.updateUATLabel(withText: "Fetched UAT: \(uat)")
-            self.payPalValidatorClient = PPCValidatorClient(accessToken: uat)
-            self.payPalValidatorClient?.presentingDelegate = self
+            self.payPalClient = PYPLClient(accessToken: uat)
+            self.payPalClient?.presentingDelegate = self
         }
     }
 
