@@ -6,8 +6,8 @@ FOUNDATION_EXPORT double PayPalVersionNumber;
 /// Project version string for PayPalCommerce.
 FOUNDATION_EXPORT const unsigned char PayPalVersionString[];
 
-#import "PPCValidatorClient.h"
-#import "PPCValidatorResult.h"
-#import "PPCApplePayValidatorResult.h"
-#import "PPCPayPalValidatorResult.h"
-#import "PPCCardValidatorResult.h"
+#import "PYPLClient.h"
+#import "PYPLCheckoutResult.h"
+#import "PYPLApplePayCheckoutResult.h"
+#import "PYPLPayPalCheckoutResult.h"
+#import "PYPLCardCheckoutResult.h"

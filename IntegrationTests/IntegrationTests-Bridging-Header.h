@@ -1,11 +1,11 @@
 // Public Headers
 #import "PayPalCommercePlatform.h"
-#import "PPCValidatorClient.h"
+#import "PYPLClient.h"
 
 // Internal headers for testing
-#import "PPCValidationResult.h"
-#import "PPCAPIClient.h"
-#import "PPCCardContingencyResult.h"
-#import "PPCValidatorClient_Internal.h"
+#import "PYPLValidationResult.h"
+#import "PYPLAPIClient.h"
+#import "PYPLCardContingencyResult.h"
+#import "PYPLClient_Internal.h"
 #import "BTPaymentFlowDriver.h"
-#import "PPCCardContingencyRequest.h"
+#import "PYPLCardContingencyRequest.h"
