@@ -28,8 +28,9 @@ typealias PurchaseUnit = CreateOrderParams.PurchaseUnit
 typealias Amount = CreateOrderParams.PurchaseUnit.Amount
 typealias Payee = CreateOrderParams.PurchaseUnit.Payee
 
+// TODO: rename all instances of UAT to either ClientToken or IDToken in the PPCP and BT SDKs
 struct UAT: Codable {
-    let universalAccessToken: String
+    let idToken: String
 }
 
 struct ProcessOrderParams: Codable {
@@ -74,7 +75,7 @@ class DemoMerchantAPI {
 
     func generateUAT(countryCode: String, completion: @escaping ((String?, Error?) -> Void)) {
         var components = URLComponents(url: DemoSettings.sampleMerchantServerURL, resolvingAgainstBaseURL: false)!
-        components.path = "/uat"
+        components.path = "/client-token"
         components.queryItems = [URLQueryItem(name: "countryCode", value: countryCode)]
 
         var urlRequest = URLRequest(url: components.url!)
@@ -90,7 +91,7 @@ class DemoMerchantAPI {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let uat = try decoder.decode(UAT.self, from: data)
-                completion(uat.universalAccessToken, nil)
+                completion(uat.idToken, nil)
             } catch (let parseError) {
                 completion(nil, parseError)
             }
