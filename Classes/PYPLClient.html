@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PYPLClient Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/objc/Class/PYPLClient" class="dashAnchor"></a>
+
+    <a title="PYPLClient Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          PayPal 0.0.1 Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/paypal/ios-sdk">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">PayPal Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      PYPLClient Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PYPLApplePayCheckoutResult.html">PYPLApplePayCheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes.html#/c:objc(cs)PYPLCardCheckoutResult">PYPLCardCheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PYPLCheckoutResult.html">PYPLCheckoutResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PYPLClient.html">PYPLClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes.html#/c:objc(cs)PYPLPayPalCheckoutResult">PYPLPayPalCheckoutResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@PYPLClientErrorDomain">PYPLClientErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@PayPalVersionNumber">PayPalVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@PayPalVersionString">PayPalVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Type%20Definitions.html#/c:PYPLClient.h@T@PYPLApplePayResultHandler">PYPLApplePayResultHandler</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>PYPLClient</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">PYPLClient</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>This class acts as the entry point for processing Apple Pay, Card, and PayPal payments.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PYPLClient(py)presentingDelegate"></a>
+                    <a name="//apple_ref/objc/Property/presentingDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PYPLClient(py)presentingDelegate">presentingDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A required delegate to control the presentation and dismissal of view controllers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">id</span> <span class="n">_Nullable</span> <span class="n">presentingDelegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/paypal/ios-sdk/blob/master/PayPal/Public/PYPLClient.h#L51">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PYPLClient(im)initWithAccessToken:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithAccessToken:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PYPLClient(im)initWithAccessToken:">-initWithAccessToken:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>PYPLClient</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAccessToken</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">accessToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A valid PayPal UAT.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A PYPLClient, or <code>nil</code> if initialization failed.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/paypal/ios-sdk/blob/master/PayPal/Public/PYPLClient.h#L59">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PYPLClient(im)checkoutWithCard:card:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-checkoutWithCard:card:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PYPLClient(im)checkoutWithCard:card:completion:">-checkoutWithCard:<wbr>card:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@brief Initiates the Card checkout flow.</p>
+
+<p>@discussion Processes the card payment utilizing the 3D Secure verification authorization flow. If a 3DS challenge is required, the user is redirected to a <code>SFSafariViewController</code> to enter their pin to complete the challenge. If no 3DS challenge is present, no additional action is required by the user and the completion is called with result information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">checkoutWithCard</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">orderId</span>
+                    <span class="nf">card</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">card</span>
+              <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)PYPLCardCheckoutResult">PYPLCardCheckoutResult</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orderId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A valid PayPal orderID.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>card</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>BTCard</code> object that contains customer&rsquo;s card details.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that returns a <code><a href="../Classes.html#/c:objc(cs)PYPLCardCheckoutResult">PYPLCardCheckoutResult</a></code> on successful checkout or an <code>error</code> if a failure occured.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/paypal/ios-sdk/blob/master/PayPal/Public/PYPLClient.h#L70-L72">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PYPLClient(im)checkoutWithPayPal:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-checkoutWithPayPal:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PYPLClient(im)checkoutWithPayPal:completion:">-checkoutWithPayPal:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@brief Initiates the Pay with PayPal checkout flow.</p>
+
+<p>@discussion Redirects user to a <code>SFSafariViewController</code> to login with their PayPal account to complete a PayPal checkout.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">checkoutWithPayPal</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">orderId</span>
+                <span class="nf">completion</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)PYPLPayPalCheckoutResult">PYPLPayPalCheckoutResult</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                      <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orderId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A valid PayPal orderID.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that returns a <code><a href="../Classes.html#/c:objc(cs)PYPLPayPalCheckoutResult">PYPLPayPalCheckoutResult</a></code> on successful checkout or an <code>error</code> if a failure occured.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/paypal/ios-sdk/blob/master/PayPal/Public/PYPLClient.h#L82-L83">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PYPLClient(im)checkoutWithApplePay:paymentRequest:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-checkoutWithApplePay:paymentRequest:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PYPLClient(im)checkoutWithApplePay:paymentRequest:completion:">-checkoutWithApplePay:<wbr>paymentRequest:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@brief Initiates an Apple Pay checkout flow.</p>
+
+<p>@discussion Presents a <code>PKPaymentAuthorizationViewController</code> to the user to complete an Apple Pay checkout flow. The required <code>BTViewControllerPresentingDelegate</code> protocol methods will be called upon UI presentation and dismissal.</p>
+
+<p>You must call the <code><a href="../Type%20Definitions.html#/c:PYPLClient.h@T@PYPLApplePayResultHandler">PYPLApplePayResultHandler</a></code> with a boolean to indicate the success or failure of your payment authorization or capture. This is so the SDK can notify the user of the payment&rsquo;s status.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">checkoutWithApplePay</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">orderId</span>
+              <span class="nf">paymentRequest</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">paymentRequest</span>
+                  <span class="nf">completion</span><span class="p">:</span>
+                      <span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes/PYPLApplePayCheckoutResult.html">PYPLApplePayCheckoutResult</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                        <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                        <span class="n"><a href="../Type%20Definitions.html#/c:PYPLClient.h@T@PYPLApplePayResultHandler">PYPLApplePayResultHandler</a></span> <span class="n">_Nullable</span><span class="p">))</span>
+                          <span class="n">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orderId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A valid PayPal orderID.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentRequest</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A valid <code>PKPaymentRequest</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that returns a <code><a href="../Classes/PYPLApplePayCheckoutResult.html">PYPLApplePayCheckoutResult</a></code> on successful checkout or an <code>error</code> if a failure occured.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/paypal/ios-sdk/blob/master/PayPal/Public/PYPLClient.h#L96-L98">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://developer.paypal.com/docs/limited-release/ppcp-sdk/" target="_blank" rel="external">Braintree</a>. All rights reserved. (Last updated: 2020-06-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
