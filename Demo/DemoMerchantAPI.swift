@@ -75,7 +75,7 @@ class DemoMerchantAPI {
 
     func generateUAT(countryCode: String, completion: @escaping ((String?, Error?) -> Void)) {
         var components = URLComponents(url: DemoSettings.sampleMerchantServerURL, resolvingAgainstBaseURL: false)!
-        components.path = "/client-token"
+        components.path = "/id-token"
         components.queryItems = [URLQueryItem(name: "countryCode", value: countryCode)]
 
         var urlRequest = URLRequest(url: components.url!)
