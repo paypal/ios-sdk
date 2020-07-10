@@ -4,7 +4,7 @@ class PYPLClient_Tests: XCTestCase {
 
     let uatParams: [String : Any] = [
       "iss": "https://api.sandbox.paypal.com",
-      "external_ids": [
+      "external_id": [
         "Braintree:merchant-id"
       ]
     ]
@@ -586,7 +586,7 @@ class PYPLClient_Tests: XCTestCase {
 
         let uatParams: [String : Any] = [
           "iss": "https://api.msmaster.qa.paypal.com",
-          "external_ids": [
+          "external_id": [
             "Braintree:merchant-id"
           ]
         ]
@@ -611,7 +611,7 @@ class PYPLClient_Tests: XCTestCase {
 
         let uatParams: [String : Any] = [
             "iss": "https://api.paypal.com",
-            "external_ids": [
+            "external_id": [
                 "Braintree:merchant-id"
             ]
         ]

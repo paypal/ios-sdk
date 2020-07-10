@@ -55,7 +55,7 @@ class IntegrationTests_MerchantAPI {
 
     func generateUAT(completion: @escaping ((String?, Error?) -> Void)) {
         var components = URLComponents(url: URL(string: "https://ppcp-sample-merchant-sand.herokuapp.com")!, resolvingAgainstBaseURL: false)!
-        components.path = "/uat"
+        components.path = "/id-token"
         components.queryItems = [URLQueryItem(name: "countryCode", value: "US")]
 
         var urlRequest = URLRequest(url: components.url!)
@@ -69,7 +69,7 @@ class IntegrationTests_MerchantAPI {
 
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
-                let uat = json?.value(forKey: "universal_access_token")
+                let uat = json?.value(forKey: "id_token")
                 completion(uat as? String, nil)
             } catch (let error) {
                 completion(nil, error)

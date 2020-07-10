@@ -12,7 +12,7 @@ class PYPLAPIClient_Tests: XCTestCase {
             "Braintree:Vault"
         ],
         "exp": 1571980506,
-        "external_ids": [
+        "external_id": [
             "PayPal:fake-pp-merchant",
             "Braintree:fake-bt-merchant"
         ],

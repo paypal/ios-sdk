@@ -1,30 +1,30 @@
 PODS:
-  - Braintree (4.33.0):
-    - Braintree/Card (= 4.33.0)
-    - Braintree/Core (= 4.33.0)
-    - Braintree/PayPal (= 4.33.0)
-    - Braintree/UI (= 4.33.0)
-  - Braintree/Apple-Pay (4.33.0):
+  - Braintree (4.34.0):
+    - Braintree/Card (= 4.34.0)
+    - Braintree/Core (= 4.34.0)
+    - Braintree/PayPal (= 4.34.0)
+    - Braintree/UI (= 4.34.0)
+  - Braintree/Apple-Pay (4.34.0):
     - Braintree/Core
-  - Braintree/Card (4.33.0):
+  - Braintree/Card (4.34.0):
     - Braintree/Core
-  - Braintree/Core (4.33.0)
-  - Braintree/PaymentFlow (4.33.0):
+  - Braintree/Core (4.34.0)
+  - Braintree/PaymentFlow (4.34.0):
     - Braintree/Card
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPal (4.33.0):
+  - Braintree/PayPal (4.34.0):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.33.0):
+  - Braintree/PayPalDataCollector (4.34.0):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.33.0):
+  - Braintree/PayPalOneTouch (4.34.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.33.0)
-  - Braintree/UI (4.33.0):
+  - Braintree/PayPalUtils (4.34.0)
+  - Braintree/UI (4.34.0):
     - Braintree/Card
     - Braintree/Core
   - InAppSettingsKit (2.15)
@@ -34,7 +34,7 @@ PODS:
     - Braintree/PaymentFlow
 
 DEPENDENCIES:
-  - Braintree (from `https://github.com/braintree/braintree_ios.git`, branch `uat-env`)
+  - Braintree (from `https://github.com/braintree/braintree_ios.git`, branch `pp-auth-support`)
   - InAppSettingsKit
   - PayPal (from `./`)
 
@@ -44,21 +44,21 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Braintree:
-    :branch: uat-env
+    :branch: pp-auth-support
     :git: https://github.com/braintree/braintree_ios.git
   PayPal:
     :path: "./"
 
 CHECKOUT OPTIONS:
   Braintree:
-    :commit: 1fee7c09243a15266bf3ce102cc187c2fc846fe1
+    :commit: 72597f1d50766da02afa0705037591432fd9a25f
     :git: https://github.com/braintree/braintree_ios.git
 
 SPEC CHECKSUMS:
-  Braintree: 586e4d274398fabe9d70ab790eefca41660b8a17
+  Braintree: 48154e70306eb3e6c81eaa87bbc5c5988c0d2784
   InAppSettingsKit: 4890a44f9df7a1742c632920f0ea939cbeb29ea2
   PayPal: 369e3bdef937ad496d48c1c9c588148fcbb11627
 
-PODFILE CHECKSUM: 06f833fd9b30d28d177cc4b1d60b2f9abbf69bb1
+PODFILE CHECKSUM: 52e521028c2a49307f1f5d8e74a8bd35ad78fc25
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
