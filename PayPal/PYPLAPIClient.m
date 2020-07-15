@@ -44,11 +44,20 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
         completion(nil, createRequestError);
         return;
     }
+
+    NSDictionary *fptiData = @{
+        @"state_name": @"paypal_sdk",
+        @"context_type": @"cart-ID",
+        @"context_id": orderId,
+        // TODO - additional data
+        @"paypal_sdk_v": @"SDK_VERSION",
+        @"rcvr_id": @"TODO_PP_MERCHANT_ID"
+    };
     
     [[self.urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-sdk.validate.failed"];
+                [self sdkAnalyticsEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
                 completion(nil, error);
                 return;
             }
@@ -76,13 +85,13 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
                     NSError *validateError = [[NSError alloc] initWithDomain:PYPLAPIClientErrorDomain
                                                                         code:0 userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
                     
-                    [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-sdk.validate.failed"];
+                    [self sdkAnalyticsEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
                     completion(nil, validateError);
                     return;
                 }
             }
             
-            [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-sdk.validate.succeeded"];
+            [self sdkAnalyticsEvent:@"ios.paypal-sdk.validate.succeeded" with:fptiData];
             completion(result, nil);
         });
     }] resume];
@@ -125,4 +134,10 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
     return (NSDictionary *)validateParameters;
 }
 
+- (void)sdkAnalyticsEvent:(NSString *)eventKind with:(NSDictionary *)additionalData {
+    [self.braintreeAPIClient sendFPTIEvent:eventKind with:additionalData];
+    [self.braintreeAPIClient sendAnalyticsEvent:eventKind];
+}
+
 @end
+#
