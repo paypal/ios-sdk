@@ -7,6 +7,6 @@
 @interface BTAPIClient (Analytics)
 
 - (void)sendAnalyticsEvent:(NSString *)eventName;
-- (void)sendFPTIEvent:(NSString *)eventKind with:(NSDictionary *)additionalData;
+- (void)sendSDKEvent:(NSString *)eventKind with:(NSDictionary *)additionalData;
 
 @end
