@@ -8,5 +8,6 @@
 
 - (void)sendAnalyticsEvent:(NSString *)eventName;
 - (void)sendSDKEvent:(NSString *)eventKind with:(NSDictionary *)additionalData;
+- (BOOL)isFPTIAvailable;
 
 @end
