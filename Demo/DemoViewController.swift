@@ -10,7 +10,7 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
     @IBOutlet weak var orderResultLabel: UILabel!
     @IBOutlet weak var processOrderButton: UIButton!
     @IBOutlet weak var checkoutResultLabel: UILabel!
-    @IBOutlet weak var uatLabel: UILabel!
+    @IBOutlet weak var idTokenLabel: UILabel!
     @IBOutlet weak var otherCheckoutStackView: UIStackView!
     
     private var orderID: String?
@@ -25,14 +25,14 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
         applePayButton.addTarget(self, action: #selector(applePayCheckoutTapped(_:)), for: .touchUpInside)
         otherCheckoutStackView.addArrangedSubview(applePayButton)
         
-        generateUAT()
+        generateIDToken()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         amountTextField.text = "10.00"
         payeeEmailTextField.text = DemoSettings.payeeEmailAddress
 
-        generateUAT()
+        generateIDToken()
         processOrderButton.setTitle("\(DemoSettings.intent.capitalized) Order", for: .normal)
     }
 
@@ -150,7 +150,7 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
     }
     
     @IBAction func refreshTapped(_ sender: Any) {
-        generateUAT()
+        generateIDToken()
     }
 
     // MARK: - Construct order/request helpers
@@ -184,16 +184,16 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
         return card
     }
 
-    func generateUAT() {
-        updateUATLabel(withText: "Fetching UAT...")
-        DemoMerchantAPI.sharedService.generateUAT(countryCode: DemoSettings.countryCode) { (uat, error) in
-            guard let uat = uat, error == nil else {
-                self.updateUATLabel(withText: "Failed to fetch UAT: \(error!.localizedDescription). Tap refresh to try again.")
+    func generateIDToken() {
+        updateIDTokenLabel(withText: "Fetching ID Token...")
+        DemoMerchantAPI.sharedService.generateIDToken(countryCode: DemoSettings.countryCode) { (idToken, error) in
+            guard let idToken = idToken, error == nil else {
+                self.updateIDTokenLabel(withText: "Failed to fetch ID Token: \(error!.localizedDescription). Tap refresh to try again.")
                 return
             }
 
-            self.updateUATLabel(withText: "Fetched UAT: \(uat)")
-            self.payPalClient = PYPLClient(accessToken: uat)
+            self.updateIDTokenLabel(withText: "Fetched ID Token: \(idToken)")
+            self.payPalClient = PYPLClient(idToken: idToken)
             self.payPalClient?.presentingDelegate = self
         }
     }
@@ -219,9 +219,9 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
         }
     }
 
-    private func updateUATLabel(withText text: String) {
+    private func updateIDTokenLabel(withText text: String) {
         DispatchQueue.main.async {
-            self.uatLabel.text = text
+            self.idTokenLabel.text = text
         }
     }
 

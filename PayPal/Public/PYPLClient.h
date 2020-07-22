@@ -53,10 +53,10 @@ typedef void (^PYPLApplePayResultHandler)(BOOL success);
 /**
  Initializes a new `PYPLClient`.
 
- @param accessToken A valid PayPal UAT.
+ @param idToken A valid PayPal ID Token.
  @return A PYPLClient, or `nil` if initialization failed.
  */
-- (nullable instancetype)initWithAccessToken:(NSString *)accessToken;
+- (nullable instancetype)initWithIDToken:(NSString *)idToken;
 
 /**
  @brief Initiates the Card checkout flow.

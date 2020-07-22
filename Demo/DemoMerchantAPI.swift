@@ -28,8 +28,8 @@ typealias PurchaseUnit = CreateOrderParams.PurchaseUnit
 typealias Amount = CreateOrderParams.PurchaseUnit.Amount
 typealias Payee = CreateOrderParams.PurchaseUnit.Payee
 
-// TODO: rename all instances of UAT to either ClientToken or IDToken in the PPCP and BT SDKs
-struct UAT: Codable {
+// TODO: rename all instances of ID Token to either ClientToken or IDToken in the PPCP and BT SDKs
+struct IDToken: Codable {
     let idToken: String
 }
 
@@ -73,7 +73,7 @@ class DemoMerchantAPI {
         }.resume()
     }
 
-    func generateUAT(countryCode: String, completion: @escaping ((String?, Error?) -> Void)) {
+    func generateIDToken(countryCode: String, completion: @escaping ((String?, Error?) -> Void)) {
         var components = URLComponents(url: DemoSettings.sampleMerchantServerURL, resolvingAgainstBaseURL: false)!
         components.path = "/id-token"
         components.queryItems = [URLQueryItem(name: "countryCode", value: countryCode)]
@@ -90,8 +90,8 @@ class DemoMerchantAPI {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let uat = try decoder.decode(UAT.self, from: data)
-                completion(uat.idToken, nil)
+                let idToken = try decoder.decode(IDToken.self, from: data)
+                completion(idToken.idToken, nil)
             } catch (let parseError) {
                 completion(nil, parseError)
             }

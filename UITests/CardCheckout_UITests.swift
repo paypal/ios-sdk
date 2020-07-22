@@ -1,6 +1,6 @@
 import XCTest
 
-// NOTE: These tests fetch UAT and orderID from the sample merchant server https://ppcp-sample-merchant-sand.herokuapp.com
+// NOTE: These tests fetch ID Token and orderID from the sample merchant server https://ppcp-sample-merchant-sand.herokuapp.com
 
 class CardCheckout_UITests: XCTestCase {
     var app: XCUIApplication!
@@ -10,9 +10,9 @@ class CardCheckout_UITests: XCTestCase {
         app.launchArguments.append("-Capture")
         app.launch()
 
-        // wait for PP UAT
-        let uatExistsPredicate = NSPredicate(format: "label LIKE 'Fetched UAT:*'")
-        waitForElementToAppear(app.staticTexts.containing(uatExistsPredicate).element(boundBy: 0))
+        // wait for PP ID Token
+        let idTokenExistsPredicate = NSPredicate(format: "label LIKE 'Fetched ID Token:*'")
+        waitForElementToAppear(app.staticTexts.containing(idTokenExistsPredicate).element(boundBy: 0))
 
         // tap Create Order button
         app.buttons["Create Order"].tap()
@@ -57,9 +57,9 @@ class CardCheckout_UITests: XCTestCase {
         app.launchArguments.append("-Authorize")
         app.launch()
 
-        // wait for PP UAT
-        let uatExistsPredicate = NSPredicate(format: "label LIKE 'Fetched UAT:*'")
-        waitForElementToAppear(app.staticTexts.containing(uatExistsPredicate).element(boundBy: 0))
+        // wait for PP ID Token
+        let idTokenExistsPredicate = NSPredicate(format: "label LIKE 'Fetched ID Token:*'")
+        waitForElementToAppear(app.staticTexts.containing(idTokenExistsPredicate).element(boundBy: 0))
 
         // tap Create Order button
         app.buttons["Create Order"].tap()
@@ -105,9 +105,9 @@ class CardCheckout_UITests: XCTestCase {
         app = XCUIApplication()
         app.launch()
 
-        // wait for PP UAT
-        let uatExistsPredicate = NSPredicate(format: "label LIKE 'Fetched UAT:*'")
-        waitForElementToAppear(app.staticTexts.containing(uatExistsPredicate).element(boundBy: 0))
+        // wait for PP ID Token
+        let idTokenExistsPredicate = NSPredicate(format: "label LIKE 'Fetched ID Token:*'")
+        waitForElementToAppear(app.staticTexts.containing(idTokenExistsPredicate).element(boundBy: 0))
 
         // tap Create Order button
         app.buttons["Create Order"].tap()

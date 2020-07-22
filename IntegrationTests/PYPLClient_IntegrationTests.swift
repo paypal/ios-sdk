@@ -13,15 +13,15 @@ class PYPLClient_IntegrationTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        // STEP 1 - Fetch UAT
+        // STEP 1 - Fetch ID Token
         let expectUAT = self.expectation(description: "Fetch Universal Access Token from PPCP sample server")
-        IntegrationTests_MerchantAPI.sharedService.generateUAT { (uat, error) in
-            guard let uat = uat, error == nil else {
-                XCTFail() // without a fresh UAT, integration tests cannot pass
+        IntegrationTests_MerchantAPI.sharedService.generateUAT { (idToken, error) in
+            guard let idToken = idToken, error == nil else {
+                XCTFail() // without a fresh ID Token, integration tests cannot pass
                 return
             }
 
-            self.payPalClient = PYPLClient(accessToken: uat)
+            self.payPalClient = PYPLClient(idToken: idToken)
             expectUAT.fulfill()
         }
 

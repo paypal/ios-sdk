@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSURLSession *urlSession;
 @property (nonatomic, strong) BTAPIClient *braintreeAPIClient;
 
-- (nullable instancetype)initWithAccessToken:(NSString *)accessToken;
+- (nullable instancetype)initWithIDToken:(NSString *)idToken;
 
 - (void)validatePaymentMethod:(BTPaymentMethodNonce *)paymentMethod
                    forOrderId:(NSString *)orderId

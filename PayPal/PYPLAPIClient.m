@@ -6,21 +6,21 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
 
 @interface PYPLAPIClient()
 
-@property (nonatomic, strong) BTPayPalUAT *payPalUAT;
+@property (nonatomic, strong) BTPayPalIDToken *payPalIDToken;
 
 @end
 
 @implementation PYPLAPIClient
 
-- (nullable instancetype)initWithAccessToken:(NSString *)accessToken {
+- (nullable instancetype)initWithIDToken:(NSString *)idToken {
     if (self = [super init]) {
         _urlSession = NSURLSession.sharedSession;
-        _braintreeAPIClient = [[BTAPIClient alloc] initWithAuthorization:accessToken];
+        _braintreeAPIClient = [[BTAPIClient alloc] initWithAuthorization:idToken];
         
         NSError *error;
-        _payPalUAT = [[BTPayPalUAT alloc] initWithUATString:accessToken error:&error];
-        if (error || !_payPalUAT) {
-            NSLog(@"[PayPalSDK] %@", error.localizedDescription ?: @"Error initializing PayPal UAT");
+        _payPalIDToken = [[BTPayPalIDToken alloc] initWithIDTokenString:idToken error:&error];
+        if (error || !_payPalIDToken) {
+            NSLog(@"[PayPalSDK] %@", error.localizedDescription ?: @"Error initializing PayPal ID Token");
             return nil;
         }
     }
@@ -33,7 +33,7 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
                       with3DS:(BOOL)isThreeDSecureRequired
                    completion:(void (^)(PYPLValidationResult * _Nullable result, NSError * _Nullable error))completion {
     
-    NSString *urlString = [NSString stringWithFormat:@"%@/v2/checkout/orders/%@/validate-payment-method", self.payPalUAT.basePayPalURL, orderId];
+    NSString *urlString = [NSString stringWithFormat:@"%@/v2/checkout/orders/%@/validate-payment-method", self.payPalIDToken.basePayPalURL, orderId];
     NSError *createRequestError;
     
     NSURLRequest *urlRequest = [self createValidateURLRequest:[NSURL URLWithString:urlString]
@@ -94,7 +94,7 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
                                               error:(NSError **)error {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"POST";
-    [request setValue:[NSString stringWithFormat:@"Bearer %@", self.payPalUAT.token] forHTTPHeaderField:@"Authorization"];
+    [request setValue:[NSString stringWithFormat:@"Bearer %@", self.payPalIDToken.token] forHTTPHeaderField:@"Authorization"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSDictionary *body = [self constructValidatePayload:paymentMethodNonce with3DS:isThreeDSecureRequired];
