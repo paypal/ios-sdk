@@ -14,15 +14,15 @@ class PYPLClient_IntegrationTests: XCTestCase {
         super.setUp()
 
         // STEP 1 - Fetch ID Token
-        let expectUAT = self.expectation(description: "Fetch Universal Access Token from PPCP sample server")
-        IntegrationTests_MerchantAPI.sharedService.generateUAT { (idToken, error) in
+        let expectIDToken = self.expectation(description: "Fetch ID Token from PPCP sample server")
+        IntegrationTests_MerchantAPI.sharedService.generateIDToken { (idToken, error) in
             guard let idToken = idToken, error == nil else {
                 XCTFail() // without a fresh ID Token, integration tests cannot pass
                 return
             }
 
             self.payPalClient = PYPLClient(idToken: idToken)
-            expectUAT.fulfill()
+            expectIDToken.fulfill()
         }
 
         // STEP 2 - Fetch orderID

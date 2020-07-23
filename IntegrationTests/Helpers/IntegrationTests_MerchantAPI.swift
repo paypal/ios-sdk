@@ -53,7 +53,7 @@ class IntegrationTests_MerchantAPI {
         }.resume()
     }
 
-    func generateUAT(completion: @escaping ((String?, Error?) -> Void)) {
+    func generateIDToken(completion: @escaping ((String?, Error?) -> Void)) {
         var components = URLComponents(url: URL(string: "https://ppcp-sample-merchant-sand.herokuapp.com")!, resolvingAgainstBaseURL: false)!
         components.path = "/id-token"
         components.queryItems = [URLQueryItem(name: "countryCode", value: "US")]

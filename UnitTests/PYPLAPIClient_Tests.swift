@@ -28,7 +28,7 @@ class PYPLAPIClient_Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        idTokenString = PayPalUATTestHelper.encodeUAT(idTokenParams)
+        idTokenString = PayPalIDTokenTestHelper.encodeToken(idTokenParams)
         mockBTAPIClient = MockBTAPIClient(authorization: idTokenString)
         
         payPalAPIClient = PYPLAPIClient(idToken: idTokenString)!
@@ -38,11 +38,11 @@ class PYPLAPIClient_Tests: XCTestCase {
     
     // MARK: - initialization
 
-    func testInitWithAccessToken_returnsAPIClient() {
+    func testInitWithIDTokenToken_returnsAPIClient() {
         XCTAssertNotNil(PYPLAPIClient(idToken: idTokenString))
     }
     
-    func testInitWithInvalidAccessToken_returnsNil() {
+    func testInitWithInvalidIDToken_returnsNil() {
         XCTAssertNil(PYPLAPIClient(idToken: "invalid-token"))
     }
 

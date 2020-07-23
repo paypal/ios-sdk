@@ -22,7 +22,7 @@ class PYPLClient_Tests: XCTestCase {
     let mockViewControllerPresentingDelegate = MockViewControllerPresentingDelegate()
 
     override func setUp() {
-        idTokenString = PayPalUATTestHelper.encodeUAT(idTokenParams)
+        idTokenString = PayPalIDTokenTestHelper.encodeToken(idTokenParams)
         
         payPalClient = PYPLClient(idToken: idTokenString)
         mockBTAPIClient = MockBTAPIClient(authorization: idTokenString)
@@ -59,9 +59,9 @@ class PYPLClient_Tests: XCTestCase {
         mockBTAPIClient.postedAnalyticsEvents.removeAll()
     }
 
-    // MARK: - initWithAccessToken
+    // MARK: - initWithIDToken
 
-    func testClientInitialization_withUAT_initializesAllProperties() {
+    func testClientInitialization_withIDToken_initializesAllProperties() {
         let payPalClient = PYPLClient(idToken: idTokenString)
         XCTAssertNotNil(payPalClient)
         XCTAssertNotNil(payPalClient?.payPalAPIClient)
@@ -72,7 +72,7 @@ class PYPLClient_Tests: XCTestCase {
         XCTAssertNotNil(payPalClient?.payPalIDToken)
     }
 
-    func testClientInitialization_withInvalidUAT_returnsNil() {
+    func testClientInitialization_withInvalidIDToken_returnsNil() {
         let payPalClient = PYPLClient(idToken: "header.invalid_paypal_id_token_body.signature")
         XCTAssertNil(payPalClient)
     }
@@ -591,7 +591,7 @@ class PYPLClient_Tests: XCTestCase {
           ]
         ]
 
-        payPalClient = PYPLClient(idToken: PayPalUATTestHelper.encodeUAT(idTokenParams))
+        payPalClient = PYPLClient(idToken: PayPalIDTokenTestHelper.encodeToken(idTokenParams))
         mockPaymentFlowDriver = MockPaymentFlowDriver(apiClient: mockBTAPIClient)
         payPalClient?.paymentFlowDriver = mockPaymentFlowDriver
 
@@ -616,7 +616,7 @@ class PYPLClient_Tests: XCTestCase {
             ]
         ]
 
-        payPalClient = PYPLClient(idToken: PayPalUATTestHelper.encodeUAT(idTokenParams))
+        payPalClient = PYPLClient(idToken: PayPalIDTokenTestHelper.encodeToken(idTokenParams))
         mockPaymentFlowDriver = MockPaymentFlowDriver(apiClient: mockBTAPIClient)
         payPalClient?.paymentFlowDriver = mockPaymentFlowDriver
 
