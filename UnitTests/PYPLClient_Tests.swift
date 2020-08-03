@@ -2,14 +2,14 @@ import XCTest
 
 class PYPLClient_Tests: XCTestCase {
 
-    let uatParams: [String : Any] = [
+    let idTokenParams: [String : Any] = [
       "iss": "https://api.sandbox.paypal.com",
       "external_id": [
         "Braintree:merchant-id"
       ]
     ]
     
-    var uatString: String!
+    var idTokenString: String!
     
     var payPalClient: PYPLClient!
     let paymentRequest = PKPaymentRequest()
@@ -22,10 +22,10 @@ class PYPLClient_Tests: XCTestCase {
     let mockViewControllerPresentingDelegate = MockViewControllerPresentingDelegate()
 
     override func setUp() {
-        uatString = PayPalUATTestHelper.encodeUAT(uatParams)
+        idTokenString = PayPalIDTokenTestHelper.encodeToken(idTokenParams)
         
-        payPalClient = PYPLClient(accessToken: uatString)
-        mockBTAPIClient = MockBTAPIClient(authorization: uatString)
+        payPalClient = PYPLClient(idToken: idTokenString)
+        mockBTAPIClient = MockBTAPIClient(authorization: idTokenString)
         
         let defaultPaymentRequest = PKPaymentRequest()
         defaultPaymentRequest.countryCode = "US"
@@ -59,21 +59,21 @@ class PYPLClient_Tests: XCTestCase {
         mockBTAPIClient.postedAnalyticsEvents.removeAll()
     }
 
-    // MARK: - initWithAccessToken
+    // MARK: - initWithIDToken
 
-    func testClientInitialization_withUAT_initializesAllProperties() {
-        let payPalClient = PYPLClient(accessToken: uatString)
+    func testClientInitialization_withIDToken_initializesAllProperties() {
+        let payPalClient = PYPLClient(idToken: idTokenString)
         XCTAssertNotNil(payPalClient)
         XCTAssertNotNil(payPalClient?.payPalAPIClient)
         XCTAssertNotNil(payPalClient?.braintreeAPIClient)
         XCTAssertNotNil(payPalClient?.paymentFlowDriver)
         XCTAssertNotNil(payPalClient?.cardClient)
         XCTAssertNotNil(payPalClient?.applePayClient)
-        XCTAssertNotNil(payPalClient?.payPalUAT)
+        XCTAssertNotNil(payPalClient?.payPalIDToken)
     }
 
-    func testClientInitialization_withInvalidUAT_returnsNil() {
-        let payPalClient = PYPLClient(accessToken: "header.invalid_paypal_uat_body.signature")
+    func testClientInitialization_withInvalidIDToken_returnsNil() {
+        let payPalClient = PYPLClient(idToken: "header.invalid_paypal_id_token_body.signature")
         XCTAssertNil(payPalClient)
     }
     
@@ -584,14 +584,14 @@ class PYPLClient_Tests: XCTestCase {
     func testCheckoutWithPayPal_paymentFlowRequest_containsStagingCheckoutURL() {
         let expectation = self.expectation(description: "calls completion")
 
-        let uatParams: [String : Any] = [
+        let idTokenParams: [String : Any] = [
           "iss": "https://api.msmaster.qa.paypal.com",
           "external_id": [
             "Braintree:merchant-id"
           ]
         ]
 
-        payPalClient = PYPLClient(accessToken: PayPalUATTestHelper.encodeUAT(uatParams))
+        payPalClient = PYPLClient(idToken: PayPalIDTokenTestHelper.encodeToken(idTokenParams))
         mockPaymentFlowDriver = MockPaymentFlowDriver(apiClient: mockBTAPIClient)
         payPalClient?.paymentFlowDriver = mockPaymentFlowDriver
 
@@ -609,14 +609,14 @@ class PYPLClient_Tests: XCTestCase {
     func testCheckoutWithPayPal_paymentFlowRequest_containsProductionCheckoutURL() {
         let expectation = self.expectation(description: "calls completion")
 
-        let uatParams: [String : Any] = [
+        let idTokenParams: [String : Any] = [
             "iss": "https://api.paypal.com",
             "external_id": [
                 "Braintree:merchant-id"
             ]
         ]
 
-        payPalClient = PYPLClient(accessToken: PayPalUATTestHelper.encodeUAT(uatParams))
+        payPalClient = PYPLClient(idToken: PayPalIDTokenTestHelper.encodeToken(idTokenParams))
         mockPaymentFlowDriver = MockPaymentFlowDriver(apiClient: mockBTAPIClient)
         payPalClient?.paymentFlowDriver = mockPaymentFlowDriver
 

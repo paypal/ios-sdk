@@ -34,7 +34,7 @@ PODS:
     - Braintree/PaymentFlow
 
 DEPENDENCIES:
-  - Braintree (from `https://github.com/braintree/braintree_ios.git`, branch `pp-auth-support`)
+  - Braintree (from `https://github.com/braintree/braintree_ios.git`, branch `fpti-and-id-token-support`)
   - InAppSettingsKit
   - PayPal (from `./`)
 
@@ -44,21 +44,21 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Braintree:
-    :branch: pp-auth-support
+    :branch: fpti-and-id-token-support
     :git: https://github.com/braintree/braintree_ios.git
   PayPal:
     :path: "./"
 
 CHECKOUT OPTIONS:
   Braintree:
-    :commit: 72597f1d50766da02afa0705037591432fd9a25f
+    :commit: a8414199c121fff31c5b7ba49f002eee0f29912b
     :git: https://github.com/braintree/braintree_ios.git
 
 SPEC CHECKSUMS:
-  Braintree: 48154e70306eb3e6c81eaa87bbc5c5988c0d2784
+  Braintree: 6ace63d4eb5e26a55cdc660d19d98bdb1d8bf885
   InAppSettingsKit: 4890a44f9df7a1742c632920f0ea939cbeb29ea2
   PayPal: 369e3bdef937ad496d48c1c9c588148fcbb11627
 
-PODFILE CHECKSUM: 52e521028c2a49307f1f5d8e74a8bd35ad78fc25
+PODFILE CHECKSUM: 5ea79210f5d7edc875c2dd933a3c110ee07de1b4
 
 COCOAPODS: 1.9.3

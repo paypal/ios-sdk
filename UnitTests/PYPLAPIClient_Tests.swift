@@ -2,7 +2,7 @@ import XCTest
 
 class PYPLAPIClient_Tests: XCTestCase {
   
-    let uatParams: [String : Any] = [
+    let idTokenParams: [String : Any] = [
         "iss": "https://api.sandbox.paypal.com",
         "sub": "PayPal:fake-pp-merchant",
         "acr": [
@@ -19,7 +19,7 @@ class PYPLAPIClient_Tests: XCTestCase {
         "jti": "fake-jti"
     ]
     
-    var uatString: String!
+    var idTokenString: String!
     var payPalAPIClient: PYPLAPIClient!
     var mockBTAPIClient: MockBTAPIClient!
     
@@ -28,22 +28,22 @@ class PYPLAPIClient_Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        uatString = PayPalUATTestHelper.encodeUAT(uatParams)
-        mockBTAPIClient = MockBTAPIClient(authorization: uatString)
+        idTokenString = PayPalIDTokenTestHelper.encodeToken(idTokenParams)
+        mockBTAPIClient = MockBTAPIClient(authorization: idTokenString)
         
-        payPalAPIClient = PYPLAPIClient(accessToken: uatString)!
+        payPalAPIClient = PYPLAPIClient(idToken: idTokenString)!
         payPalAPIClient.urlSession = mockURLSession
         payPalAPIClient.braintreeAPIClient = mockBTAPIClient
     }
     
     // MARK: - initialization
 
-    func testInitWithAccessToken_returnsAPIClient() {
-        XCTAssertNotNil(PYPLAPIClient(accessToken: uatString))
+    func testInitWithIDTokenToken_returnsAPIClient() {
+        XCTAssertNotNil(PYPLAPIClient(idToken: idTokenString))
     }
     
-    func testInitWithInvalidAccessToken_returnsNil() {
-        XCTAssertNil(PYPLAPIClient(accessToken: "invalid-token"))
+    func testInitWithInvalidIDToken_returnsNil() {
+        XCTAssertNil(PYPLAPIClient(idToken: "invalid-token"))
     }
 
     // MARK: -  validatePaymentMethod
@@ -59,7 +59,7 @@ class PYPLAPIClient_Tests: XCTestCase {
             
             XCTAssertEqual(request.httpMethod, "POST")
             XCTAssertEqual(request.url?.absoluteString, "https://api.sandbox.paypal.com/v2/checkout/orders/order-id/validate-payment-method")
-            XCTAssertEqual(request.value(forHTTPHeaderField: "Authorization"), "Bearer \(self.uatString!)")
+            XCTAssertEqual(request.value(forHTTPHeaderField: "Authorization"), "Bearer \(self.idTokenString!)")
             XCTAssertEqual(request.value(forHTTPHeaderField: "Content-Type"), "application/json")
             XCTAssertEqual(body, try! BTJSON(withJSONFile: "paypal-validate-request-with-3ds")?.asJSON())
             expectation.fulfill()
@@ -81,7 +81,7 @@ class PYPLAPIClient_Tests: XCTestCase {
 
             XCTAssertEqual(request.httpMethod, "POST")
             XCTAssertEqual(request.url?.absoluteString, "https://api.sandbox.paypal.com/v2/checkout/orders/order-id/validate-payment-method")
-            XCTAssertEqual(request.value(forHTTPHeaderField: "Authorization"), "Bearer \(self.uatString!)")
+            XCTAssertEqual(request.value(forHTTPHeaderField: "Authorization"), "Bearer \(self.idTokenString!)")
             XCTAssertEqual(request.value(forHTTPHeaderField: "Content-Type"), "application/json")
             XCTAssertEqual(body, try! BTJSON(withJSONFile: "paypal-validate-request-without-3ds")?.asJSON())
             expectation.fulfill()

@@ -27,17 +27,17 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
     [PayPalDataCollectorClass clientMetadataID:_orderId];
 }
 
-- (nullable instancetype)initWithAccessToken:(NSString *)accessToken {
+- (nullable instancetype)initWithIDToken:(NSString *)idToken {
     self = [super init];
     if (self) {
         NSError *error;
-        _payPalUAT = [[BTPayPalUAT alloc] initWithUATString:accessToken error:&error];
-        if (error || !_payPalUAT) {
-            NSLog(@"[PayPalSDK]: Error initializing PayPal UAT. Error code: %ld", (long) error.code);
+        _payPalIDToken = [[BTPayPalIDToken alloc] initWithIDTokenString:idToken error:&error];
+        if (error || !_payPalIDToken) {
+            NSLog(@"[PayPalSDK]: Error initializing PayPal ID Token. Error code: %ld", (long) error.code);
             return nil;
         }
 
-        _braintreeAPIClient = [[BTAPIClient alloc] initWithAuthorization:accessToken];
+        _braintreeAPIClient = [[BTAPIClient alloc] initWithAuthorization:idToken];
         if (!_braintreeAPIClient) {
             return nil;
         }
@@ -45,7 +45,7 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
         _applePayClient = [[BTApplePayClient alloc] initWithAPIClient:_braintreeAPIClient];
         _cardClient = [[BTCardClient alloc] initWithAPIClient:_braintreeAPIClient];
         _paymentFlowDriver = [[BTPaymentFlowDriver alloc] initWithAPIClient:_braintreeAPIClient];
-        _payPalAPIClient = [[PYPLAPIClient alloc] initWithAccessToken:accessToken];
+        _payPalAPIClient = [[PYPLAPIClient alloc] initWithIDToken:idToken];
     }
 
     return self;
@@ -119,11 +119,11 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
     [self.braintreeAPIClient sendAnalyticsEvent:@"ios.paypal-sdk.paypal-checkout.started"];
 
     NSString *baseURL;
-    if (self.payPalUAT.environment == BTPayPalUATEnvironmentProd) {
+    if (self.payPalIDToken.environment == BTPayPalIDTokenEnvironmentProd) {
         baseURL = @"https://www.paypal.com";
-    } else if (self.payPalUAT.environment == BTPayPalUATEnvironmentSand) {
+    } else if (self.payPalIDToken.environment == BTPayPalIDTokenEnvironmentSand) {
         baseURL = @"https://www.sandbox.paypal.com";
-    } else if (self.payPalUAT.environment == BTPayPalUATEnvironmentStage) {
+    } else if (self.payPalIDToken.environment == BTPayPalIDTokenEnvironmentStage) {
         baseURL = @"https://www.msmaster.qa.paypal.com";
     }
 
