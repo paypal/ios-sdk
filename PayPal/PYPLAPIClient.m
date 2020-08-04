@@ -134,8 +134,8 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
     return (NSDictionary *)validateParameters;
 }
 
-- (void)sdkAnalyticsEvent:(NSString *)eventKind with:(NSDictionary *)additionalData {
-    [self.braintreeAPIClient sendSDKEvent:eventKind with:additionalData];
+- (void)sdkAnalyticsEvent:(NSString *)eventName with:(NSDictionary *)additionalData {
+    [self.braintreeAPIClient sendSDKEvent:eventName with:additionalData];
 }
 
 @end

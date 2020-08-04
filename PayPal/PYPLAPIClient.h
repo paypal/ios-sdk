@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
                                             with3DS:(BOOL)isThreeDSecureRequired
                                               error:(NSError **)error;
 
-- (void)sdkAnalyticsEvent:(NSString *)eventKind with:(NSDictionary *)additionalData;
+- (void)sdkAnalyticsEvent:(NSString *)eventName with:(NSDictionary *)additionalData;
 
 @end
 

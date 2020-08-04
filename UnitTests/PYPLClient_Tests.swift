@@ -8,7 +8,9 @@ class PYPLClient_Tests: XCTestCase {
         "Braintree:merchant-id"
       ]
     ]
-    
+
+    let orderID = "fake-order"
+
     var idTokenString: String!
     
     var payPalClient: PYPLClient!
@@ -26,6 +28,7 @@ class PYPLClient_Tests: XCTestCase {
         
         payPalClient = PYPLClient(idToken: idTokenString)
         mockBTAPIClient = MockBTAPIClient(authorization: idTokenString)
+        mockPayPalAPIClient.braintreeAPIClient = mockBTAPIClient
         
         let defaultPaymentRequest = PKPaymentRequest()
         defaultPaymentRequest.countryCode = "US"
@@ -89,7 +92,7 @@ class PYPLClient_Tests: XCTestCase {
             expectation.fulfill()
         }
 
-        payPalClient?.checkoutWithApplePay(orderID: "my-order-id", paymentRequest: paymentRequest) { (_, _, _) in
+        payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (_, _, _) in
             // not called
         }
         
@@ -102,12 +105,12 @@ class PYPLClient_Tests: XCTestCase {
 
         let expectation = self.expectation(description: "returns Apple Pay error to merchant")
 
-        payPalClient?.checkoutWithApplePay(orderID: "my-order-id", paymentRequest: PKPaymentRequest()) { (checkoutResult, error, handler) in
+        payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: PKPaymentRequest()) { (checkoutResult, error, handler) in
             XCTAssertEqual(error?.localizedDescription, "error message")
             XCTAssertNil(checkoutResult)
             XCTAssertNil(handler)
 
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.apple-pay-payment-request.failed"))
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.apple-pay-payment-request.failed")
             expectation.fulfill()
         }
         
@@ -124,7 +127,7 @@ class PYPLClient_Tests: XCTestCase {
             expectation.fulfill()
         }
 
-        payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (_, _, _) in }
+        payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (_, _, _) in }
 
         waitForExpectations(timeout: 1.0, handler: nil)
     }
@@ -137,13 +140,13 @@ class PYPLClient_Tests: XCTestCase {
             
             mockPayPalAPIClient.validationResult = PYPLValidationResult()
             
-            payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
+            payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
                 XCTAssertEqual(checkoutResult?.orderID, "fake-order")
                 XCTAssertNil(error)
                 XCTAssertNotNil(handler)
                 
-                XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.apple-pay-checkout.started"))
-                XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.apple-pay-checkout.succeeded"))
+                self.assertSentAnalyticsEvent("ios.paypal-sdk.apple-pay-checkout.started")
+                self.assertSentAnalyticsEvent("ios.paypal-sdk.apple-pay-checkout.succeeded")
                 expectation.fulfill()
             }
 
@@ -183,7 +186,7 @@ class PYPLClient_Tests: XCTestCase {
 
             mockPayPalAPIClient.validationResult = PYPLValidationResult()
 
-            payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (result, error, handler) in
+            payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (result, error, handler) in
                 XCTAssertEqual(result?.orderID, "fake-order")
                 XCTAssertEqual(result?.billingContact?.name?.givenName, "Lady")
                 XCTAssertEqual(result?.billingContact?.name?.familyName, "Gaga")
@@ -210,11 +213,11 @@ class PYPLClient_Tests: XCTestCase {
             mockApplePayClient.applePayCardNonce = nil
             mockApplePayClient.tokenizeError = NSError(domain: "some-domain", code: 1, userInfo: [NSLocalizedDescriptionKey: "BT tokenization error"])
             
-            payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
+            payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
                 XCTAssertNil(checkoutResult)
                 XCTAssertEqual(error?.localizedDescription, "An internal error occured during checkout. Please contact Support.")
 
-                XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.apple-pay-checkout.failed"))
+                self.assertSentAnalyticsEvent("ios.paypal-sdk.apple-pay-checkout.failed")
 
                 expectation.fulfill()
             }
@@ -233,11 +236,11 @@ class PYPLClient_Tests: XCTestCase {
             mockPayPalAPIClient.validationError = NSError(domain: "some-domain", code: 1, userInfo: [NSLocalizedDescriptionKey: "error message"])
             mockPayPalAPIClient.validationResult = nil
             
-            payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
+            payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
                 XCTAssertNil(checkoutResult)
                 XCTAssertEqual(error?.localizedDescription, "error message")
 
-                XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.apple-pay-checkout.failed"))
+                self.assertSentAnalyticsEvent("ios.paypal-sdk.apple-pay-checkout.failed")
 
                 expectation.fulfill()
             }
@@ -254,7 +257,7 @@ class PYPLClient_Tests: XCTestCase {
             let expectation = self.expectation(description: "merchant calls applePayResultHandler with true")
             mockPayPalAPIClient.validationResult = PYPLValidationResult()
 
-            payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (_, _, handler) in
+            payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (_, _, handler) in
                 // merchant calls handler to indicate successful transaction
                 handler?(true)
             }
@@ -262,7 +265,7 @@ class PYPLClient_Tests: XCTestCase {
             let delegate = payPalClient as? PKPaymentAuthorizationViewControllerDelegate
             delegate?.paymentAuthorizationViewController?(PKPaymentAuthorizationViewController(), didAuthorizePayment: PKPayment(), handler: { authorizationResult in
                 XCTAssertEqual(authorizationResult.status, .success)
-                XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.apple-pay-result-handler.true"))
+                self.assertSentAnalyticsEvent("ios.paypal-sdk.apple-pay-result-handler.true")
                 expectation.fulfill()
             })
 
@@ -275,7 +278,7 @@ class PYPLClient_Tests: XCTestCase {
             let expectation = self.expectation(description: "merchant calls applePayResultHandler with false")
             mockPayPalAPIClient.validationResult = PYPLValidationResult()
 
-            payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (_, _, handler) in
+            payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (_, _, handler) in
                 // merchant calls handler to indicate a failed transaction
                 handler?(false)
             }
@@ -283,7 +286,7 @@ class PYPLClient_Tests: XCTestCase {
             let delegate = payPalClient as? PKPaymentAuthorizationViewControllerDelegate
             delegate?.paymentAuthorizationViewController?(PKPaymentAuthorizationViewController(), didAuthorizePayment: PKPayment(), handler: { authorizationResult in
                 XCTAssertEqual(authorizationResult.status, .failure)
-                XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.apple-pay-result-handler.false"))
+                self.assertSentAnalyticsEvent("ios.paypal-sdk.apple-pay-result-handler.false")
                 expectation.fulfill()
             })
 
@@ -298,7 +301,7 @@ class PYPLClient_Tests: XCTestCase {
 
         mockPayPalAPIClient.validationResult = PYPLValidationResult()
 
-        payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
+        payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
             XCTAssertEqual(checkoutResult?.orderID, "fake-order")
             XCTAssertNil(error)
             XCTAssertNotNil(handler)
@@ -318,7 +321,7 @@ class PYPLClient_Tests: XCTestCase {
         mockApplePayClient.applePayCardNonce = nil
         mockApplePayClient.tokenizeError = NSError(domain: "some-domain", code: 1, userInfo: [NSLocalizedDescriptionKey: "BT tokenization error"])
 
-        payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
+        payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
             XCTAssertNil(checkoutResult)
             XCTAssertEqual(error?.localizedDescription, "An internal error occured during checkout. Please contact Support.")
             expectation.fulfill()
@@ -336,7 +339,7 @@ class PYPLClient_Tests: XCTestCase {
         mockPayPalAPIClient.validationError = NSError(domain: "some-domain", code: 1, userInfo: [NSLocalizedDescriptionKey: "error message"])
         mockPayPalAPIClient.validationResult = nil
 
-        payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
+        payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (checkoutResult, error, handler) in
             XCTAssertNil(checkoutResult)
             XCTAssertEqual(error?.localizedDescription, "error message")
             expectation.fulfill()
@@ -353,7 +356,7 @@ class PYPLClient_Tests: XCTestCase {
 
         mockPayPalAPIClient.validationResult = PYPLValidationResult()
 
-        payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (_, _, handler) in
+        payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (_, _, handler) in
             // merchant calls handler to indicate successful transaction
             handler?(true)
         }
@@ -361,7 +364,7 @@ class PYPLClient_Tests: XCTestCase {
         let delegate = payPalClient as? PKPaymentAuthorizationViewControllerDelegate
         delegate?.paymentAuthorizationViewController?(PKPaymentAuthorizationViewController(), didAuthorizePayment: PKPayment(), completion: { status in
             XCTAssertEqual(status, .success)
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.apple-pay-result-handler.true"))
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.apple-pay-result-handler.true")
             expectation.fulfill()
         })
 
@@ -373,7 +376,7 @@ class PYPLClient_Tests: XCTestCase {
 
         mockPayPalAPIClient.validationResult = PYPLValidationResult()
 
-        payPalClient?.checkoutWithApplePay(orderID: "fake-order", paymentRequest: paymentRequest) { (_, _, handler) in
+        payPalClient?.checkoutWithApplePay(orderID: orderID, paymentRequest: paymentRequest) { (_, _, handler) in
             // merchant calls handler to indicate failed transaction
             handler?(false)
         }
@@ -381,7 +384,7 @@ class PYPLClient_Tests: XCTestCase {
         let delegate = payPalClient as? PKPaymentAuthorizationViewControllerDelegate
         delegate?.paymentAuthorizationViewController?(PKPaymentAuthorizationViewController(), didAuthorizePayment: PKPayment(), completion: { status in
             XCTAssertEqual(status, .failure)
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.apple-pay-result-handler.false"))
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.apple-pay-result-handler.false")
             expectation.fulfill()
         })
 
@@ -395,13 +398,13 @@ class PYPLClient_Tests: XCTestCase {
         
         mockPayPalAPIClient.validationResult = PYPLValidationResult()
         
-        payPalClient?.checkoutWithCard(orderID: "fake-order", card: BTCard()) { (checkoutResult, error) in
+        payPalClient?.checkoutWithCard(orderID: orderID, card: BTCard()) { (checkoutResult, error) in
             XCTAssertEqual(checkoutResult?.orderID, "fake-order")
             XCTAssertNil(error)
 
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.card-checkout.started"))
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.card-checkout.succeeded"))
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.card-contingency.no-challenge"))
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.card-checkout.started")
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.card-checkout.succeeded")
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.card-contingency.no-challenge")
 
             expectation.fulfill()
         }
@@ -427,12 +430,12 @@ class PYPLClient_Tests: XCTestCase {
         
         mockPaymentFlowDriver.paymentFlowResult = BTPaymentFlowResult()
         
-        payPalClient?.checkoutWithCard(orderID: "fake-order", card: BTCard()) { (checkoutResult, error) in
+        payPalClient?.checkoutWithCard(orderID: orderID, card: BTCard()) { (checkoutResult, error) in
             XCTAssertEqual(checkoutResult?.orderID, "fake-order")
             XCTAssertNil(error)
 
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.card-contingency.started"))
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.card-contingency.succeeded"))
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.card-contingency.started")
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.card-contingency.succeeded")
 
             expectation.fulfill()
         }
@@ -459,11 +462,11 @@ class PYPLClient_Tests: XCTestCase {
         mockPaymentFlowDriver.paymentFlowResult = nil
         mockPaymentFlowDriver.paymentFlowError = NSError(domain: "some-domain", code: 1, userInfo: [NSLocalizedDescriptionKey: "error message"])
         
-        payPalClient?.checkoutWithCard(orderID: "fake-order", card: BTCard()) { (checkoutResult, error) in
+        payPalClient?.checkoutWithCard(orderID: orderID, card: BTCard()) { (checkoutResult, error) in
             XCTAssertNil(checkoutResult)
             XCTAssertEqual(error?.localizedDescription, "error message")
 
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.card-contingency.failed"))
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.card-contingency.failed")
 
             expectation.fulfill()
         }
@@ -477,11 +480,11 @@ class PYPLClient_Tests: XCTestCase {
         mockCardClient.tokenizeCardError = NSError(domain: "some-domain", code: 1, userInfo: [NSLocalizedDescriptionKey: "BT Tokenization error"])
         mockCardClient.cardNonce = nil
         
-        payPalClient?.checkoutWithCard(orderID: "fake-order", card: BTCard()) { (checkoutResult, error) in
+        payPalClient?.checkoutWithCard(orderID: orderID, card: BTCard()) { (checkoutResult, error) in
             XCTAssertNil(checkoutResult)
             XCTAssertEqual(error?.localizedDescription, "An internal error occured during checkout. Please contact Support.")
 
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.card-checkout.failed"))
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.card-checkout.failed")
 
             expectation.fulfill()
         }
@@ -495,7 +498,7 @@ class PYPLClient_Tests: XCTestCase {
         mockPayPalAPIClient.validationError = NSError(domain: "some-domain", code: 1, userInfo: [NSLocalizedDescriptionKey: "error message"])
         mockPayPalAPIClient.validationResult = nil
         
-        payPalClient?.checkoutWithCard(orderID: "fake-order", card: BTCard()) { (checkoutResult, error) in
+        payPalClient?.checkoutWithCard(orderID: orderID, card: BTCard()) { (checkoutResult, error) in
             XCTAssertNil(checkoutResult)
             XCTAssertEqual(error?.localizedDescription, "error message")
             expectation.fulfill()
@@ -509,7 +512,7 @@ class PYPLClient_Tests: XCTestCase {
 
         let expectation = self.expectation(description: "calls PPDataCollector.clientMetadataId()")
 
-        payPalClient?.checkoutWithCard(orderID: "fake-order", card: BTCard()) { (checkoutResult, error) in
+        payPalClient?.checkoutWithCard(orderID: orderID, card: BTCard()) { (checkoutResult, error) in
             XCTAssertTrue(MockPPDataCollector.didFetchClientMetadataID)
             expectation.fulfill()
         }
@@ -522,12 +525,12 @@ class PYPLClient_Tests: XCTestCase {
     func testCheckoutWithPayPal_callsCompletionWithCheckoutResult() {
         let expectation = self.expectation(description: "calls completion with checkout result")
                 
-        payPalClient?.checkoutWithPayPal(orderID: "fake-order") { (checkoutResult, error) in
+        payPalClient?.checkoutWithPayPal(orderID: orderID) { (checkoutResult, error) in
             XCTAssertEqual(checkoutResult?.orderID, "fake-order")
             XCTAssertNil(error)
 
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.paypal-checkout.started"))
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.paypal-checkout.succeeded"))
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.paypal-checkout.started")
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.paypal-checkout.succeeded")
 
             expectation.fulfill()
         }
@@ -540,7 +543,7 @@ class PYPLClient_Tests: XCTestCase {
 
         let expectation = self.expectation(description: "calls PPDataCollector.clientMetadataId()")
 
-        payPalClient?.checkoutWithPayPal(orderID: "fake-order") { (checkoutResult, error) in
+        payPalClient?.checkoutWithPayPal(orderID: orderID) { (checkoutResult, error) in
             XCTAssertTrue(MockPPDataCollector.didFetchClientMetadataID)
             expectation.fulfill()
         }
@@ -554,12 +557,12 @@ class PYPLClient_Tests: XCTestCase {
         mockPaymentFlowDriver.paymentFlowError = NSError(domain: "some-domain", code: 1, userInfo: [NSLocalizedDescriptionKey: "error message"])
         mockPaymentFlowDriver.paymentFlowResult = nil
         
-        payPalClient?.checkoutWithPayPal(orderID: "fake-order") { (checkoutResult, error) in
+        payPalClient?.checkoutWithPayPal(orderID: orderID) { (checkoutResult, error) in
             XCTAssertNil(checkoutResult)
             XCTAssertEqual(error?.localizedDescription, "error message")
 
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.paypal-checkout.started"))
-            XCTAssert(self.mockBTAPIClient.postedAnalyticsEvents.contains("ios.paypal-sdk.paypal-checkout.failed"))
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.paypal-checkout.started")
+            self.assertSentAnalyticsEvent("ios.paypal-sdk.paypal-checkout.failed")
 
             expectation.fulfill()
         }
@@ -574,7 +577,7 @@ class PYPLClient_Tests: XCTestCase {
             XCTAssertEqual((request as! PYPLPayPalPaymentFlowRequest).checkoutURL, URL(string: "https://www.sandbox.paypal.com/checkoutnow?token=fake-order"))
         }
 
-        payPalClient?.checkoutWithPayPal(orderID: "fake-order") { (checkoutResult, error) in
+        payPalClient?.checkoutWithPayPal(orderID: orderID) { (checkoutResult, error) in
             expectation.fulfill()
         }
 
@@ -599,7 +602,7 @@ class PYPLClient_Tests: XCTestCase {
             XCTAssertEqual((request as! PYPLPayPalPaymentFlowRequest).checkoutURL, URL(string: "https://www.msmaster.qa.paypal.com/checkoutnow?token=fake-order"))
         }
 
-        payPalClient?.checkoutWithPayPal(orderID: "fake-order") { (checkoutResult, error) in
+        payPalClient?.checkoutWithPayPal(orderID: orderID) { (checkoutResult, error) in
             expectation.fulfill()
         }
 
@@ -624,10 +627,29 @@ class PYPLClient_Tests: XCTestCase {
             XCTAssertEqual((request as! PYPLPayPalPaymentFlowRequest).checkoutURL, URL(string: "https://www.paypal.com/checkoutnow?token=fake-order"))
         }
 
-        payPalClient?.checkoutWithPayPal(orderID: "fake-order") { (checkoutResult, error) in
+        payPalClient?.checkoutWithPayPal(orderID: orderID) { (checkoutResult, error) in
             expectation.fulfill()
         }
 
         waitForExpectations(timeout: 1.0, handler: nil)
+    }
+
+    // MARK: - Helpers
+
+    private func assertSentAnalyticsEvent(_ eventName: String) {
+        guard let actualAdditionalData = self.mockBTAPIClient.postedAnalyticsEvents[eventName] else {
+            XCTFail("Analytics event not found: \(eventName)")
+            return
+        }
+
+        let expectedAdditionalData: [String : String] = [
+            "context_type": "cart-ID",
+            "state_name": "paypal_sdk",
+            "context_id": "fake-order",
+            "paypal_sdk_v": "SDK_VERSION",
+            "rcvr_id": "TODO_PP_MERCHANT_ID"
+        ]
+
+        XCTAssertEqual(actualAdditionalData as? [String:String], expectedAdditionalData)
     }
 }

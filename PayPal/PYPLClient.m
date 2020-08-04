@@ -40,10 +40,10 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
         _braintreeAPIClient = [[BTAPIClient alloc] initWithAuthorization:idToken];
         if (!_braintreeAPIClient) {
             return nil;
-        } else if (![_braintreeAPIClient isFPTIAvailable]) {
+        } else if (!_braintreeAPIClient.isFPTIAvailable) {
             error = [NSError errorWithDomain:PYPLClientErrorDomain
-                                                 code:PYPLClientErrorIntegration
-                                             userInfo:@{NSLocalizedDescriptionKey: @"[PayPalSDK]: FPTI framework not found but is required."}];
+                                        code:PYPLClientErrorIntegration
+                                    userInfo:@{NSLocalizedDescriptionKey: @"[PayPalSDK]: FPTI framework not found but is required."}];
             NSLog(@"[PayPalSDK]: FPTI framework not found but is required. Error code: %ld", (long) error.code);
             return nil;
         }

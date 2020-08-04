@@ -4,10 +4,14 @@
 #import <BraintreeCore/BraintreeCore.h>
 #endif
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface BTAPIClient (Analytics)
 
-- (void)sendAnalyticsEvent:(NSString *)eventName;
-- (void)sendSDKEvent:(NSString *)eventKind with:(NSDictionary *)additionalData;
-- (BOOL)isFPTIAvailable;
+@property (nonatomic, readonly, assign) BOOL isFPTIAvailable;
+
+- (void)sendSDKEvent:(NSString *)eventName with:(NSDictionary *)additionalData;
 
 @end
+
+NS_ASSUME_NONNULL_END
