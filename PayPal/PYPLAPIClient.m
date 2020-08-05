@@ -57,7 +57,7 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
     [[self.urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                [self sdkAnalyticsEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
+                [self.braintreeAPIClient sendSDKEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
                 completion(nil, error);
                 return;
             }
@@ -85,13 +85,13 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
                     NSError *validateError = [[NSError alloc] initWithDomain:PYPLAPIClientErrorDomain
                                                                         code:0 userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
                     
-                    [self sdkAnalyticsEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
+                    [self.braintreeAPIClient sendSDKEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
                     completion(nil, validateError);
                     return;
                 }
             }
             
-            [self sdkAnalyticsEvent:@"ios.paypal-sdk.validate.succeeded" with:fptiData];
+            [self.braintreeAPIClient sendSDKEvent:@"ios.paypal-sdk.validate.succeeded" with:fptiData];
             completion(result, nil);
         });
     }] resume];
@@ -134,9 +134,4 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
     return (NSDictionary *)validateParameters;
 }
 
-- (void)sdkAnalyticsEvent:(NSString *)eventName with:(NSDictionary *)additionalData {
-    [self.braintreeAPIClient sendSDKEvent:eventName with:additionalData];
-}
-
 @end
-#
