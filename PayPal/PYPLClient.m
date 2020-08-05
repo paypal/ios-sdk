@@ -279,15 +279,15 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
 
 /** FPTI default values for PYPLClient */
 - (NSMutableDictionary *)fptiDefaults {
-    NSMutableDictionary *defaults = [NSMutableDictionary dictionaryWithDictionary:@{
+    NSMutableDictionary *defaults = [@{
         @"state_name": @"paypal_sdk",
         // TODO - additional data
         @"paypal_sdk_v": @"SDK_VERSION",
         @"rcvr_id": @"TODO_PP_MERCHANT_ID"
-    }];
-    if (_orderId) {
-        [defaults setObject:_orderId forKey:@"context_id"];
-        [defaults setObject:@"cart-ID" forKey:@"context_type"];
+    } mutableCopy];
+    if (self.orderId) {
+        defaults[@"context_id"] = self.orderId;
+        defaults[@"context_type"] = @"cart-ID";
     }
     return defaults;
 }
