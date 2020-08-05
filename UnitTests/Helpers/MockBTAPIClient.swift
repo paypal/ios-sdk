@@ -1,8 +1,8 @@
 class MockBTAPIClient: BTAPIClient {
 
-    var postedAnalyticsEvents: [String : [AnyHashable : Any]] = [:]
+    var postedAnalyticsEvents: [String : [String:Any]] = [:]
 
-    override func sendSDKEvent(_ eventName: String, with additionalData: [AnyHashable : Any]) {
+    override func sendSDKEvent(_ eventName: String, with additionalData: [String:Any]) {
         postedAnalyticsEvents[eventName] = additionalData
     }
 }

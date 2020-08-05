@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, assign) BOOL isFPTIAvailable;
 
-- (void)sendSDKEvent:(NSString *)eventName with:(NSDictionary *)additionalData;
+- (void)sendSDKEvent:(NSString *)eventName with:(NSDictionary <NSString *, id> *)additionalData;
 
 @end
 
