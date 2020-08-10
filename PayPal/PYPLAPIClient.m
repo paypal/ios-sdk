@@ -1,6 +1,7 @@
 #import "BTAPIClient+Analytics_Internal.h"
 #import "PYPLAPIClient.h"
 #import "PYPLClient.h"
+#import <FPTI/FPTI-Swift.h>
 
 NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClientErrorDomain";
 
@@ -14,6 +15,7 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
 
 - (nullable instancetype)initWithIDToken:(NSString *)idToken {
     if (self = [super init]) {
+        [FPTITracker.sharedInstance disableLifecycleTracking];
         _urlSession = NSURLSession.sharedSession;
         _braintreeAPIClient = [[BTAPIClient alloc] initWithAuthorization:idToken];
         
@@ -57,7 +59,7 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
     [[self.urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                [self.braintreeAPIClient sendSDKEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
+                [self sendSDKEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
                 completion(nil, error);
                 return;
             }
@@ -85,13 +87,13 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
                     NSError *validateError = [[NSError alloc] initWithDomain:PYPLAPIClientErrorDomain
                                                                         code:0 userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
                     
-                    [self.braintreeAPIClient sendSDKEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
+                    [self sendSDKEvent:@"ios.paypal-sdk.validate.failed" with:fptiData];
                     completion(nil, validateError);
                     return;
                 }
             }
             
-            [self.braintreeAPIClient sendSDKEvent:@"ios.paypal-sdk.validate.succeeded" with:fptiData];
+            [self sendSDKEvent:@"ios.paypal-sdk.validate.succeeded" with:fptiData];
             completion(result, nil);
         });
     }] resume];
@@ -132,6 +134,11 @@ NSString * const PYPLAPIClientErrorDomain = @"com.braintreepayments.PYPLAPIClien
     
     NSLog(@"🍏Validate Request Params: %@", validateParameters);  // TODO - remove this logging before pilot
     return (NSDictionary *)validateParameters;
+}
+
+- (void)sendSDKEvent:(NSString *)eventName with:(NSDictionary *)additionalData {
+    [self.braintreeAPIClient sendAnalyticsEvent:eventName];
+    [FPTITracker.sharedInstance trackEvent:eventName with:additionalData];
 }
 
 @end

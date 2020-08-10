@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.dependency "Braintree"
   s.dependency "Braintree/Apple-Pay"
   s.dependency "Braintree/PaymentFlow"
+  s.vendored_frameworks = "Frameworks/FPTI.framework"
 end

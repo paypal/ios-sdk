@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
                              withPaymentMethodNonce:(NSString *)paymentMethodNonce
                                             with3DS:(BOOL)isThreeDSecureRequired
                                               error:(NSError **)error;
+
+- (void)sendSDKEvent:(NSString *)eventName with:(NSDictionary *)additionalData;
+
 @end
 
 NS_ASSUME_NONNULL_END
