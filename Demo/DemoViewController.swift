@@ -194,7 +194,12 @@ class DemoViewController: UIViewController, BTViewControllerPresentingDelegate {
 
             self.updateIDTokenLabel(withText: "Fetched ID Token: \(idToken)")
             self.payPalClient = PYPLClient(idToken: idToken)
-            self.payPalClient?.presentingDelegate = self
+
+            if (self.payPalClient != nil) {
+                self.payPalClient?.presentingDelegate = self
+            } else {
+                self.updateCheckoutLabel(withText: "Error initializing PayPal Client from ID Token.")
+            }
         }
     }
 
