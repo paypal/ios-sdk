@@ -1,0 +1,4 @@
+framework module FPTI {
+  header "FPTI-Swift.h"
+  requires objc
+}

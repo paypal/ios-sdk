@@ -29,6 +29,9 @@ typedef NS_ENUM(NSInteger, PYPLClientError) {
 
     /// BTPaymentFlowDriver.startPaymentFlow returned error
     PYPLClientErrorPaymentFlowDriverFailure,
+
+    /// Integration or configuration error
+    PYPLClientErrorIntegration,
 };
 
 @end

@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
   s.source_files  = "PayPal/**/*.{h,m}"
   s.public_header_files = "PayPal/Public/*.h"
 
-  s.dependency "Braintree"
-  s.dependency "Braintree/Apple-Pay"
-  s.dependency "Braintree/PaymentFlow"
+  s.dependency "Braintree", "~> 4.35"
+  s.dependency "Braintree/Apple-Pay", "~> 4.35"
+  s.dependency "Braintree/PaymentFlow", "~> 4.35"
+  s.vendored_frameworks = "Frameworks/FPTI.framework"
 end
